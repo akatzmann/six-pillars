@@ -1,0 +1,35 @@
+Six-Pillar Agentic Engineering Architecture
+Copyright (c) 2026 akatzmann (https://github.com/akatzmann)
+
+This product includes software and workflow specifications developed by akatzmann
+as part of the Six-Pillar Agentic Engineering Architecture.
+
+========================================================================
+Third-Party Acknowledgments & Derivative Works
+========================================================================
+
+1. Superpowers Skills
+   Originally created by Jesse Vincent (https://github.com/obra/superpowers)
+   Copyright (c) Jesse Vincent
+   Licensed under the MIT License.
+   Substantially modified, restructured, and extended by akatzmann for
+   Beads dispatch units, Ponytail decision gates, and isolated git worktrees.
+
+2. OpenSpec Lifecycle Skills
+   Inspired by the OpenSpec methodology (MIT License).
+   Substantially modified and adapted by akatzmann for Beads issue
+   tracking and Superpowers execution sandboxes.
+
+3. Ponytail Decision Ladder
+   The 7-step engineering decision ladder and its multi-stage lifecycle
+   gating architecture were formulated by akatzmann (https://github.com/akatzmann).
+   Based on the original Ponytail minimalism principles and ladder concept
+   by Dietrich Gebert (https://github.com/dietrichgebert/ponytail), licensed under MIT:
+   Copyright (c) Dietrich Gebert
+
+4. OpenWiki
+   Inspired by OpenWiki (https://github.com/langchain-ai/openwiki),
+   licensed under the MIT License:
+   Copyright (c) 2026
+   Extended by akatzmann for multi-archetype project encyclopedias,
+   OKF v0.2 provenance alignment, and standalone wiki_scout.py retrieval.
