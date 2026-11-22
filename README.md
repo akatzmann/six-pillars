@@ -1,3 +1,5 @@
+[![Six Pillars: Anti-Entropy Template for AI Coding Agents](https://akatzmann.github.io/six-pillars/social-preview.png)](https://akatzmann.github.io/six-pillars/)
+
 # Six Pillars
 
 **Stop vibe-coding Jenga towers. An anti-entropy GitHub template for AI coding agents.**
