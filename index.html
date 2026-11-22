@@ -1,0 +1,3151 @@
+<!DOCTYPE html>
+<html lang="en" class="preload" data-color-scheme="dark" data-active-act="1" data-active-beat="0">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>From Vibe Coding to Six-Pillar Agentic Engineering — Interactive Architecture Deck</title>
+  <style id="workflow-css">
+    /* ==========================================================================
+       1. ADAPTABLE CSS ARCHITECTURE — 3-TIER CUSTOM PROPERTIES
+       Modify these tokens to re-align components, resize columns, or re-theme
+       the entire presentation without touching JavaScript.
+       ========================================================================== */
+    :root {
+      /* Tier 1: Layout, Proportions & Component Alignment Tokens */
+      --stage-max-width: 1440px;
+      --stage-padding-x: 2.5rem;
+      --stage-padding-y: 0.85rem;
+      --stage-split-columns: 1.02fr 1.18fr;
+      --stage-reverse-columns: 1.18fr 1.02fr;
+      --stage-gap: 1.75rem;
+      --card-gap: 0.72rem;
+      --card-padding: 1.02rem 1.25rem;
+      --hud-top-height: 60px;
+      --hud-bottom-height: 70px;
+      --hud-justify: space-between;
+      --hud-align: center;
+      --narrative-justify: center;
+      --visual-min-height: 490px;
+      --camera-perspective: 1400px;
+      --camera-ease: cubic-bezier(0.22, 1, 0.36, 1);
+      --camera-duration: 0.72s;
+
+      /* Tier 2: Semantic Surface, Border & Typography Tokens (Dark Default) */
+      --bg-void: #06080f;
+      --bg-stage: #0b0f1c;
+      --bg-card: rgba(16, 22, 38, 0.84);
+      --bg-elevated: rgba(24, 33, 56, 0.92);
+      --bg-glass: rgba(11, 15, 28, 0.86);
+      --bg-code: rgba(6, 10, 20, 0.78);
+      --bg-topbar-mobile: rgba(6, 8, 15, 0.96);
+      --bg-pill-num: rgba(255, 255, 255, 0.08);
+      --bg-chip-active: rgba(255, 255, 255, 0.07);
+      --bg-overview: rgba(6, 8, 15, 0.88);
+      --border-subtle: rgba(148, 163, 184, 0.16);
+      --border-strong: rgba(148, 163, 184, 0.32);
+      --text-primary: #f8fafc;
+      --text-secondary: #cbd5e1;
+      --text-muted: #8494ad;
+      --shadow-stage: 0 24px 60px -15px rgba(0, 0, 0, 0.72);
+      --radius-xl: 22px;
+      --radius-lg: 16px;
+      --radius-md: 11px;
+      --radius-sm: 7px;
+      --font-sans: -apple-system, BlinkMacSystemFont, "Inter", "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      --font-mono: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, monospace;
+
+      /* Tier 3: Pillar Accent Palette */
+      --accent-vibe: #f43f5e;
+      --accent-vibe-soft: rgba(244, 63, 94, 0.15);
+      --accent-openspec: #38bdf8;
+      --accent-openspec-soft: rgba(56, 189, 248, 0.15);
+      --accent-beads: #f59e0b;
+      --accent-beads-soft: rgba(245, 158, 11, 0.15);
+      --accent-superpowers: #10b981;
+      --accent-superpowers-soft: rgba(16, 185, 129, 0.15);
+      --accent-openwiki: #a855f7;
+      --accent-openwiki-soft: rgba(168, 85, 247, 0.16);
+      --accent-ponytail: #fb923c;
+      --accent-ponytail-soft: rgba(251, 146, 60, 0.15);
+      --accent-git: #22d3ee;
+      --accent-git-soft: rgba(34, 211, 238, 0.15);
+      --active-accent: var(--accent-vibe);
+    }
+
+    html {
+      background: var(--bg-void);
+    }
+
+    html.preload *,
+    html.preload *::before,
+    html.preload *::after {
+      transition: none !important;
+      animation: none !important;
+    }
+
+    html[data-color-scheme="light"] {
+      --bg-void: #eef2f9;
+      --bg-stage: #f8fafc;
+      --bg-card: rgba(255, 255, 255, 0.92);
+      --bg-elevated: rgba(241, 245, 249, 0.96);
+      --bg-glass: rgba(255, 255, 255, 0.88);
+      --bg-code: rgba(241, 245, 249, 0.96);
+      --bg-topbar-mobile: rgba(248, 250, 252, 0.96);
+      --bg-pill-num: rgba(15, 23, 42, 0.08);
+      --bg-chip-active: rgba(15, 23, 42, 0.07);
+      --bg-overview: rgba(241, 245, 249, 0.92);
+      --border-subtle: rgba(15, 23, 42, 0.11);
+      --border-strong: rgba(15, 23, 42, 0.24);
+      --text-primary: #0f172a;
+      --text-secondary: #334155;
+      --text-muted: #64748b;
+      --shadow-stage: 0 20px 45px -15px rgba(15, 23, 42, 0.12);
+      --accent-vibe: #e11d48;
+      --accent-openspec: #0284c7;
+      --accent-beads: #d97706;
+      --accent-superpowers: #059669;
+      --accent-openwiki: #7e22ce;
+      --accent-ponytail: #ea580c;
+      --accent-git: #0891b2;
+    }
+
+    html[data-active-act="1"] { --active-accent: var(--accent-vibe); }
+    html[data-active-act="2"] { --active-accent: var(--accent-openspec); }
+    html[data-active-act="3"] { --active-accent: var(--accent-superpowers); }
+    html[data-active-act="4"] { --active-accent: var(--accent-openwiki); }
+    html[data-active-act="5"] { --active-accent: var(--accent-ponytail); }
+    html[data-active-act="6"] { --active-accent: var(--accent-git); }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: var(--font-sans);
+      background: radial-gradient(circle at 50% 15%, var(--bg-stage), var(--bg-void) 80%);
+      color: var(--text-primary);
+      min-height: 100vh;
+      overflow-x: hidden;
+      display: flex;
+      flex-direction: column;
+      user-select: none;
+      -webkit-font-smoothing: antialiased;
+      transition: background 0.35s ease, color 0.35s ease;
+    }
+
+    /* ==========================================================================
+       2. TOP HUD & BOTTOM TIMELINE DOCK
+       ========================================================================== */
+    .hud-topbar {
+      height: var(--hud-top-height);
+      background: var(--bg-glass);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--border-subtle);
+      padding: 0 var(--stage-padding-x);
+      display: flex;
+      align-items: var(--hud-align);
+      justify-content: var(--hud-justify);
+      gap: 1rem;
+      position: sticky;
+      top: 0;
+      z-index: 60;
+    }
+
+    .hud-brand {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      font-weight: 800;
+      font-size: 0.98rem;
+      letter-spacing: -0.02em;
+    }
+
+    .hud-badge {
+      background: var(--active-accent);
+      color: #fff;
+      padding: 0.22rem 0.6rem;
+      border-radius: var(--radius-sm);
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      font-weight: 700;
+      transition: background-color 0.35s ease;
+    }
+
+    .hud-controls {
+      display: flex;
+      align-items: center;
+      gap: 0.55rem;
+      flex-wrap: wrap;
+    }
+
+    .hud-btn {
+      background: var(--bg-elevated);
+      color: var(--text-primary);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-sm);
+      padding: 0.38rem 0.75rem;
+      font-size: 0.78rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+    }
+
+    .hud-btn:hover {
+      border-color: var(--active-accent);
+      transform: translateY(-1px);
+    }
+
+    .beat-pills {
+      display: inline-flex;
+      background: var(--bg-void);
+      border: 1px solid var(--border-subtle);
+      border-radius: 999px;
+      padding: 0.18rem;
+      gap: 0.25rem;
+    }
+
+    .beat-pill {
+      border: none;
+      background: transparent;
+      color: var(--text-muted);
+      padding: 0.24rem 0.68rem;
+      border-radius: 999px;
+      font-size: 0.74rem;
+      font-weight: 700;
+      cursor: pointer;
+      transition: all 0.25s ease;
+    }
+
+    .beat-pill.active {
+      background: var(--active-accent);
+      color: #fff;
+    }
+
+    /* ==========================================================================
+       3. PRESENTATION STAGE, 3D CAMERA RIG & DECLARATIVE LAYOUT CLASSES
+       ========================================================================== */
+    #presentation-stage {
+      position: relative;
+      flex: 1;
+      perspective: var(--camera-perspective);
+      overflow: hidden;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: var(--stage-padding-y) var(--stage-padding-x);
+    }
+
+    #stage-canvas {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: 1;
+    }
+
+    #camera-rig {
+      position: relative;
+      z-index: 2;
+      width: 100%;
+      max-width: var(--stage-max-width);
+      transform-style: preserve-3d;
+      transition: transform var(--camera-duration) var(--camera-ease);
+    }
+
+    .act-section {
+      display: none;
+      width: 100%;
+      gap: var(--stage-gap);
+      animation: actReveal 0.62s var(--camera-ease) both;
+    }
+
+    .act-section.active {
+      display: grid;
+    }
+
+    @keyframes actReveal {
+      from {
+        opacity: 0;
+        transform: translate3d(0, 26px, -60px) rotateX(4deg);
+      }
+      to {
+        opacity: 1;
+        transform: translate3d(0, 0, 0) rotateX(0deg);
+      }
+    }
+
+    /* Declarative Layout Re-Alignment Classes (Adaptable via CSS) */
+    .act-layout-split {
+      grid-template-columns: var(--stage-split-columns);
+    }
+
+    .act-layout-reverse {
+      grid-template-columns: var(--stage-reverse-columns);
+    }
+
+    .act-layout-reverse .narrative-column {
+      order: 2;
+    }
+
+    .act-layout-reverse .visual-column {
+      order: 1;
+    }
+
+    .act-layout-stacked {
+      grid-template-columns: 1fr;
+    }
+
+    .align-top {
+      align-items: start;
+    }
+
+    .align-center {
+      align-items: center;
+    }
+
+    .align-bottom {
+      align-items: end;
+    }
+
+    /* ==========================================================================
+       4. NARRATIVE COLUMN & BEAT CARDS
+       ========================================================================== */
+    .narrative-column {
+      display: flex;
+      flex-direction: column;
+      justify-content: var(--narrative-justify);
+      gap: var(--card-gap);
+    }
+
+    .act-eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-family: var(--font-mono);
+      font-size: 0.78rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--active-accent);
+      font-weight: 700;
+    }
+
+    .act-title {
+      font-size: clamp(1.5rem, 2.25vw, 2.05rem);
+      line-height: 1.14;
+      letter-spacing: -0.025em;
+      font-weight: 850;
+    }
+
+    .act-subtitle {
+      color: var(--text-secondary);
+      font-size: 0.91rem;
+      line-height: 1.44;
+    }
+
+    .beat-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-subtle);
+      border-left: 4px solid var(--border-strong);
+      border-radius: var(--radius-lg);
+      padding: var(--card-padding);
+      box-shadow: var(--shadow-stage);
+      backdrop-filter: blur(12px);
+      transition: all 0.35s var(--camera-ease);
+      opacity: 0.52;
+      transform: scale(0.98);
+    }
+
+    .beat-card.active-beat {
+      opacity: 1;
+      transform: scale(1);
+      border-color: var(--border-strong);
+      border-left-color: var(--active-accent);
+    }
+
+    .beat-card-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.75rem;
+      flex-wrap: wrap;
+      margin-bottom: 0.4rem;
+      font-size: 0.76rem;
+      font-family: var(--font-mono);
+      color: var(--active-accent);
+      font-weight: 700;
+    }
+
+    .beat-card-header span:last-child {
+      white-space: nowrap;
+      opacity: 0.82;
+    }
+
+    .beat-card h3 {
+      font-size: 1.01rem;
+      margin-bottom: 0.34rem;
+    }
+
+    .beat-card p, .beat-card li {
+      color: var(--text-secondary);
+      font-size: 0.855rem;
+      line-height: 1.44;
+    }
+
+    .beat-card ul {
+      padding-left: 1.15rem;
+      display: grid;
+      gap: 0.24rem;
+      margin-top: 0.35rem;
+    }
+
+    code {
+      font-family: var(--font-mono);
+      font-size: 0.88em;
+      padding: 0.06em 0.32em;
+      border-radius: 5px;
+      background: var(--bg-elevated);
+      border: 1px solid var(--border-subtle);
+    }
+
+    .act-title code {
+      font-size: 0.82em;
+    }
+
+    .quote-callout {
+      margin-top: 0.65rem;
+      padding: 0.65rem 0.85rem;
+      background: var(--bg-elevated);
+      border-radius: var(--radius-md);
+      border-left: 3px solid var(--active-accent);
+      font-style: italic;
+      font-size: 0.85rem;
+      color: var(--text-primary);
+    }
+
+    .commit-example-box {
+      margin-top: 0.5rem;
+      padding: 0.55rem 0.78rem;
+      background: var(--bg-code);
+      border: 1px solid var(--border-subtle);
+      border-left: 3px solid var(--accent-git);
+      border-radius: var(--radius-md);
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      line-height: 1.42;
+      color: var(--text-primary);
+      white-space: pre-wrap;
+    }
+
+    /* ==========================================================================
+       5. INTERACTIVE VISUAL STAGE COLUMN & BESPOKE WIDGETS
+       ========================================================================== */
+    .visual-column {
+      background: var(--bg-card);
+      border: 1px solid var(--border-strong);
+      border-radius: var(--radius-xl);
+      min-height: var(--visual-min-height);
+      padding: 1.35rem;
+      position: relative;
+      overflow: hidden;
+      box-shadow: var(--shadow-stage);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .visual-stage-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.75rem;
+      border-bottom: 1px solid var(--border-subtle);
+      padding-bottom: 0.75rem;
+      z-index: 3;
+    }
+
+    .visual-stage-title {
+      font-family: var(--font-mono);
+      font-size: 0.8rem;
+      font-weight: 700;
+      color: var(--text-secondary);
+    }
+
+    .status-pill {
+      font-family: var(--font-mono);
+      font-size: 0.74rem;
+      font-weight: 700;
+      padding: 0.2rem 0.6rem;
+      border-radius: 999px;
+      background: var(--bg-elevated);
+      color: var(--active-accent);
+      border: 1px solid var(--border-subtle);
+    }
+
+    .visual-canvas-mount {
+      position: relative;
+      flex: 1;
+      min-height: 0;
+      min-width: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+      overflow: hidden;
+    }
+
+    .act-canvas {
+      max-width: min(680px, 100%);
+      max-height: 100%;
+      aspect-ratio: 680 / 360;
+      width: auto;
+      height: auto;
+      display: block;
+      margin: 0 auto;
+      border-radius: var(--radius-md);
+    }
+
+    .visual-stage-footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.75rem;
+      border-top: 1px solid var(--border-subtle);
+      padding-top: 0.75rem;
+      font-size: 0.78rem;
+      color: var(--text-muted);
+      z-index: 3;
+      flex-wrap: wrap;
+    }
+
+    /* Pipeline & Reactor Interactive Chips */
+    .interactive-chip-row {
+      display: flex;
+      gap: 0.45rem;
+      flex-wrap: wrap;
+    }
+
+    .stage-chip {
+      background: var(--bg-elevated);
+      color: var(--text-secondary);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-sm);
+      padding: 0.28rem 0.6rem;
+      font-family: var(--font-mono);
+      font-size: 0.74rem;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    .stage-chip.active, .stage-chip:hover {
+      border-color: var(--active-accent);
+      color: var(--text-primary);
+      background: var(--bg-chip-active);
+    }
+
+    /* ==========================================================================
+       6. BOTTOM TIMELINE DOCK & GOD-EYE OVERVIEW MODAL
+       ========================================================================== */
+    #timeline-dock {
+      position: sticky;
+      bottom: 0;
+      height: var(--hud-bottom-height);
+      background: var(--bg-glass);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border-top: 1px solid var(--border-subtle);
+      padding: 0 var(--stage-padding-x);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      z-index: 60;
+      box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.6);
+    }
+
+    .timeline-steps {
+      display: flex;
+      align-items: center;
+      gap: 0.45rem;
+      flex: 1;
+      min-width: 0;
+      overflow-x: auto;
+      scrollbar-width: none;
+    }
+
+    .timeline-steps::-webkit-scrollbar {
+      display: none;
+    }
+
+    .hud-beat-badge {
+      display: none;
+      background: var(--bg-elevated);
+      color: var(--active-accent);
+      border: 1px solid var(--border-strong);
+      padding: 0.2rem 0.5rem;
+      border-radius: var(--radius-sm);
+      font-family: var(--font-mono);
+      font-size: 0.72rem;
+      font-weight: 700;
+      cursor: pointer;
+    }
+
+    .timeline-node {
+      background: var(--bg-elevated);
+      border: 1px solid var(--border-subtle);
+      color: var(--text-secondary);
+      border-radius: var(--radius-md);
+      padding: 0.42rem 0.75rem;
+      font-size: 0.76rem;
+      font-weight: 700;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 0.45rem;
+      transition: all 0.22s ease;
+      white-space: nowrap;
+    }
+
+    .timeline-node.active {
+      border-color: var(--active-accent);
+      color: var(--text-primary);
+      box-shadow: 0 0 18px rgba(56, 189, 248, 0.2);
+    }
+
+    .timeline-num {
+      font-family: var(--font-mono);
+      font-size: 0.72rem;
+      padding: 0.1rem 0.38rem;
+      border-radius: 5px;
+      background: var(--bg-pill-num);
+    }
+
+    .dock-meta {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      justify-content: center;
+      gap: 0.16rem;
+      flex-shrink: 0;
+    }
+
+    .click-hint {
+      font-family: var(--font-mono);
+      font-size: 0.68rem;
+      line-height: 1.15;
+      color: var(--text-muted);
+      white-space: nowrap;
+    }
+
+    .dock-copyright,
+    .overview-credit {
+      font-family: var(--font-mono);
+      font-size: 0.72rem;
+      line-height: 1.2;
+      color: var(--text-secondary);
+      white-space: nowrap;
+    }
+
+    .dock-copyright a,
+    .overview-credit a {
+      color: var(--active-accent);
+      text-decoration: none;
+      font-weight: 700;
+    }
+
+    .dock-copyright a:hover,
+    .overview-credit a:hover {
+      text-decoration: underline;
+    }
+
+    /* Overview Modal */
+    #overview-map {
+      position: fixed;
+      inset: 0;
+      background: var(--bg-overview);
+      backdrop-filter: blur(18px);
+      z-index: 120;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 2rem;
+    }
+
+    #overview-map.open {
+      display: flex;
+    }
+
+    .overview-wrap {
+      max-width: 1180px;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 1.15rem;
+    }
+
+    .overview-grid {
+      max-width: 1180px;
+      width: 100%;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(310px, 1fr));
+      gap: 1.15rem;
+    }
+
+    .overview-credit {
+      font-size: 0.78rem;
+      text-align: center;
+    }
+
+    .overview-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-strong);
+      border-radius: var(--radius-lg);
+      padding: 1.25rem;
+      cursor: pointer;
+      transition: transform 0.22s ease, border-color 0.22s ease;
+    }
+
+    .overview-card:hover {
+      transform: translateY(-4px);
+      border-color: var(--active-accent);
+    }
+
+    /* Click Ripple Pulse */
+    .click-ripple {
+      position: fixed;
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      border: 2px solid var(--active-accent);
+      pointer-events: none;
+      z-index: 99;
+      transform: translate(-50%, -50%) scale(0.3);
+      animation: rippleOut 0.55s ease-out forwards;
+    }
+
+    @keyframes rippleOut {
+      to {
+        transform: translate(-50%, -50%) scale(2.8);
+        opacity: 0;
+      }
+    }
+
+    /* ==========================================================================
+       7. RESPONSIVE & MULTI-VIEWPORT ARCHITECTURE
+       ========================================================================== */
+
+    /* Universal Timeline Dock Overflow Safeguard (Zoomed Desktops <= 1680px & Screens <= 1440px) */
+    @media (max-width: 1680px) {
+      .click-hint {
+        display: none; /* Hide verbose keyboard hint to keep dock clean & unclipped */
+      }
+    }
+
+    @media (max-width: 1440px) {
+      .click-hint {
+        display: none;
+      }
+    }
+
+    /* Stack copyright cleanly beneath timeline pills whenever dock width <= 1540px so all 6 pills stay unclipped */
+    @media (max-width: 1540px) {
+      #timeline-dock {
+        flex-direction: column;
+        justify-content: center;
+        align-items: stretch;
+        gap: 0.24rem;
+        height: auto;
+        padding: 0.42rem var(--stage-padding-x) 0.36rem;
+      }
+      .timeline-steps {
+        width: 100%;
+      }
+      .dock-meta {
+        align-items: center;
+      }
+      .dock-copyright {
+        font-size: 0.68rem;
+      }
+    }
+
+    /* Universal Portrait Mode: Single-Column Vertical Flow Across All Screen Widths */
+    @media (orientation: portrait) {
+      .act-layout-split,
+      .act-layout-reverse {
+        grid-template-columns: 1fr !important;
+      }
+      #hud-act-name {
+        display: none;
+      }
+      .beat-pills {
+        display: none;
+      }
+      .hud-beat-badge {
+        display: inline-flex;
+        align-items: center;
+      }
+      #presentation-stage {
+        display: block;
+        overflow-y: auto;
+        -webkit-overflow-scrolling: touch;
+      }
+      .act-section.active {
+        display: flex;
+        flex-direction: column;
+        gap: 0.8rem;
+      }
+      .narrative-column {
+        display: contents;
+      }
+      .act-eyebrow {
+        order: 1;
+      }
+      .act-title {
+        order: 2;
+      }
+      .visual-column {
+        order: 3;
+      }
+      .act-subtitle {
+        order: 4;
+      }
+      .beat-card {
+        order: 5;
+      }
+      #camera-rig {
+        transform: none !important;
+      }
+    }
+
+    /* Tablet Landscape & Medium Desktops (769px - 1100px) */
+    @media (min-width: 769px) and (max-width: 1100px) {
+      :root {
+        --stage-padding-x: 1.25rem;
+        --stage-padding-y: 1rem;
+        --stage-split-columns: 1fr 1fr;
+        --card-gap: 0.75rem;
+        --card-padding: 1.1rem;
+        --visual-min-height: 400px;
+      }
+      #hud-act-name {
+        max-width: 280px;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+      .act-title {
+        font-size: 1.7rem;
+      }
+    }
+
+    /* Portrait Devices: Tablets & Phones (max-width: 768px) */
+    @media (max-width: 768px) {
+      :root {
+        --stage-padding-x: 0.85rem;
+        --stage-padding-y: 0.75rem;
+        --card-padding: 0.95rem;
+        --card-gap: 0.75rem;
+        --hud-top-height: auto;
+        --hud-bottom-height: 52px;
+        --visual-min-height: 240px;
+      }
+
+      body {
+        min-height: 100dvh;
+      }
+
+      /* Compact Topbar */
+      .hud-topbar {
+        height: auto;
+        min-height: 48px;
+        padding: 0.45rem var(--stage-padding-x);
+        flex-wrap: wrap;
+        gap: 0.4rem;
+        background: var(--bg-topbar-mobile);
+      }
+
+      #hud-act-name {
+        display: none;
+      }
+
+      .hud-controls {
+        flex: 1;
+        justify-content: flex-end;
+        gap: 0.3rem;
+      }
+
+      .beat-pills {
+        display: none;
+      }
+
+      .hud-beat-badge {
+        display: inline-flex;
+        align-items: center;
+      }
+
+      .hud-btn {
+        padding: 0.28rem 0.5rem;
+        font-size: 0.72rem;
+      }
+
+      /* Natural Vertical Flow & Scroll */
+      #presentation-stage {
+        display: block;
+        height: auto;
+        min-height: calc(100dvh - 104px);
+        overflow-y: auto;
+        overflow-x: hidden;
+        -webkit-overflow-scrolling: touch;
+        cursor: default;
+      }
+
+      #camera-rig {
+        transform: none !important;
+      }
+
+      .act-section.active {
+        display: flex;
+        flex-direction: column;
+        gap: 0.75rem;
+      }
+
+      .narrative-column {
+        display: contents;
+      }
+
+      .act-eyebrow {
+        order: 1;
+        font-size: 0.72rem;
+      }
+
+      .act-title {
+        order: 2;
+        font-size: 1.45rem;
+        line-height: 1.2;
+      }
+
+      .visual-column {
+        order: 3;
+        min-height: 230px;
+        padding: 0.8rem;
+      }
+
+      .act-subtitle {
+        order: 4;
+        font-size: 0.88rem;
+        line-height: 1.45;
+      }
+
+      .beat-card {
+        order: 5;
+        opacity: 0.88;
+        transform: none !important;
+      }
+
+      .beat-card.active-beat {
+        opacity: 1;
+        border-left-width: 4px;
+      }
+
+      .beat-card-header span:last-child {
+        display: none;
+      }
+
+      /* Sticky Timeline Dock */
+      #timeline-dock {
+        position: sticky;
+        bottom: 0;
+        height: auto;
+        min-height: var(--hud-bottom-height);
+        padding: 0.32rem 0.5rem;
+        box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.6);
+      }
+
+      .timeline-steps {
+        gap: 0.3rem;
+        padding-bottom: 2px;
+      }
+
+      .timeline-node {
+        padding: 0.28rem 0.5rem;
+        font-size: 0.7rem;
+      }
+    }
+
+    /* Widescreen Landscape & Short-Height Viewports (Phones, Tablets & Android Chrome Desktop Site: height <= 640px) */
+    @media (max-height: 640px) and (orientation: landscape) {
+      :root {
+        --stage-padding-x: 0.75rem;
+        --stage-padding-y: 0.35rem;
+        --stage-split-columns: 1fr 1fr;
+        --card-gap: 0.45rem;
+        --card-padding: 0.65rem;
+        --hud-top-height: 40px;
+        --hud-bottom-height: 42px;
+        --visual-min-height: 180px;
+      }
+
+      .hud-topbar {
+        height: 40px;
+        padding: 0 0.75rem;
+      }
+
+      #hud-act-name {
+        display: none;
+      }
+
+      .beat-pills {
+        display: none;
+      }
+
+      .hud-beat-badge {
+        display: inline-flex;
+        align-items: center;
+      }
+
+      .hud-btn {
+        padding: 0.2rem 0.45rem;
+        font-size: 0.68rem;
+      }
+
+      #presentation-stage {
+        display: block;
+        overflow-y: auto;
+        overflow-x: hidden;
+        padding: 0.35rem 0.75rem;
+      }
+
+      #camera-rig {
+        transform: none !important;
+      }
+
+      .act-layout-split,
+      .act-layout-reverse {
+        grid-template-columns: 1fr 1.05fr;
+        gap: 0.75rem;
+        align-items: start;
+      }
+
+      .act-eyebrow {
+        font-size: 0.65rem;
+      }
+
+      .act-title {
+        font-size: 1.08rem;
+        line-height: 1.15;
+      }
+
+      .act-subtitle {
+        display: none;
+      }
+
+      .beat-card {
+        padding: 0.42rem 0.62rem;
+      }
+
+      .beat-card-header span:last-child {
+        display: none;
+      }
+
+      .beat-card p, .beat-card li {
+        font-size: 0.73rem;
+        line-height: 1.32;
+      }
+
+      .visual-column {
+        min-height: 0;
+        padding: 0.42rem 0.55rem;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        gap: 0.25rem;
+      }
+
+      .visual-stage-header {
+        padding-bottom: 0.2rem;
+      }
+
+      .visual-stage-title {
+        font-size: 0.68rem;
+      }
+
+      .status-pill {
+        font-size: 0.64rem;
+        padding: 0.12rem 0.42rem;
+      }
+
+      .visual-stage-footer {
+        padding-top: 0.2rem;
+        gap: 0.22rem;
+      }
+
+      .interactive-chip-row {
+        gap: 0.22rem;
+      }
+
+      .stage-chip {
+        padding: 0.15rem 0.38rem;
+        font-size: 0.63rem;
+      }
+
+      .act-canvas {
+        max-height: min(142px, calc(100dvh - 185px));
+        width: auto;
+        max-width: 100%;
+        aspect-ratio: 680 / 360;
+      }
+
+      [aria-label="Ponytail 7 Rungs"] {
+        gap: 0.16rem;
+        flex-wrap: wrap;
+      }
+
+      [aria-label="Ponytail 7 Rungs"] .stage-chip {
+        padding: 0.1rem 0.28rem;
+        font-size: 0.56rem;
+      }
+
+      #timeline-dock {
+        position: sticky;
+        bottom: 0;
+        flex-direction: row;
+        align-items: center;
+        height: 42px;
+        min-height: 42px;
+        padding: 0 0.5rem;
+        box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.6);
+      }
+
+      .timeline-node {
+        padding: 0.22rem 0.45rem;
+        font-size: 0.68rem;
+      }
+
+      .click-hint {
+        display: none;
+      }
+
+      .dock-meta {
+        align-items: flex-end;
+      }
+
+      .dock-copyright {
+        font-size: 0.62rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- TOP HUD BAR -->
+  <header class="hud-topbar" data-no-advance="true">
+    <div class="hud-brand">
+      <span class="hud-badge" id="hud-act-badge">ACT 1 / 6</span>
+      <button type="button" class="hud-beat-badge" id="hud-beat-badge" title="Toggle Beat 1 / Beat 2">B1 / 2</button>
+      <span id="hud-act-name">Vibe Coding: The Siren Song &amp; The Collapse</span>
+    </div>
+
+    <div class="hud-controls" data-no-advance="true">
+      <div class="beat-pills" id="beat-indicators" role="group" aria-label="Act animation beats">
+        <button type="button" class="beat-pill active" data-jump-beat="0">Beat 1: Initial State</button>
+        <button type="button" class="beat-pill" data-jump-beat="1">Beat 2: Transformation</button>
+      </div>
+      <button type="button" class="hud-btn" id="btn-prev" title="Previous Beat or Act (Right-Click or Left Arrow)">&#8592; Prev</button>
+      <button type="button" class="hud-btn" id="btn-next" title="Next Beat or Act (Left-Click Stage or Right Arrow)">Next &#8594;</button>
+      <button type="button" class="hud-btn" id="btn-replay-anim" title="Replay Current Stage Animation">&#8635; Replay</button>
+      <button type="button" class="hud-btn" id="btn-overview" title="Open 6-Act God-Eye Map [M]">&#9638; Map [M]</button>
+      <button type="button" class="hud-btn" id="theme-toggle" aria-pressed="false" title="Toggle Dark/Light Theme">&#9788; Theme</button>
+      <button type="button" class="hud-btn" id="btn-fullscreen" aria-pressed="false" title="Toggle Fullscreen [F]">&#x26F6; Fullscreen [F]</button>
+    </div>
+  </header>
+
+  <!-- MAIN CLICK-DRIVEN PRESENTATION STAGE -->
+  <main id="presentation-stage" aria-live="polite">
+    <canvas id="stage-canvas"></canvas>
+
+    <div id="camera-rig">
+      <!-- ====================================================================
+           ACT 1: VIBE CODING (WHAT EVERYONE KNOWS TODAY)
+           ==================================================================== -->
+      <section class="act-section act-layout-split align-center active" data-act="1" id="act-section-1">
+        <div class="narrative-column">
+          <div class="act-eyebrow">Act 01 &bull; Starting With What Everyone Knows</div>
+          <h1 class="act-title">Vibe Coding: Instant Magic Followed by Entropy Collapse</h1>
+          <p class="act-subtitle">
+            Chat prompting feels effortless for the first hour, until growing context turns improvisation into debt.
+          </p>
+
+          <article class="beat-card active-beat" data-beat-card="0">
+            <div class="beat-card-header">
+              <span>BEAT 1.1 &bull; HONEYMOON PHASE</span>
+              <span>Next: Collapse &#8594;</span>
+            </div>
+            <h3>Prompt &rarr; Instant Prototype (&ldquo;Look, It Works!&rdquo;)</h3>
+            <p>
+              In single-window scripts, zero ceremony and rapid iteration shine while the whole codebase fits one prompt.
+            </p>
+          </article>
+
+          <article class="beat-card" data-beat-card="1">
+            <div class="beat-card-header">
+              <span>BEAT 1.2 &bull; CONTEXT DRIFT &amp; ENTROPY COLLAPSE</span>
+              <span>Next: OpenSpec &#8594;</span>
+            </div>
+            <h3>Why Pure Vibe Coding Collapses at Scale</h3>
+            <ul>
+              <li><strong>Context Drift:</strong> Fixing Bug A breaks Feature B with no spec anchoring the model.</li>
+              <li><strong>Bloat &amp; Redundancy:</strong> Every prompt spawns parallel helpers and extra dependencies.</li>
+              <li><strong>Unsafe Main Edits:</strong> Unverified experiments overwrite working files in <code>main</code>.</li>
+            </ul>
+            <div class="quote-callout">
+              &ldquo;Vibe coding is a slur &mdash; I do agentic engineering.&rdquo; &mdash; Peter Steinberger (TEDAI Vienna 2026, Session 4)
+            </div>
+          </article>
+        </div>
+
+        <div class="visual-column">
+          <div class="visual-stage-header">
+            <span class="visual-stage-title">LIVE SIMULATION // VIBE CODING ENTROPY TOWER</span>
+            <span class="status-pill" id="act1-status-pill">STATE: HONEYMOON ORBIT</span>
+          </div>
+          <div class="visual-canvas-mount">
+            <canvas class="act-canvas" id="canvas-act-1" width="680" height="360"></canvas>
+          </div>
+          <div class="visual-stage-footer" data-no-advance="true">
+            <div class="interactive-chip-row">
+              <button type="button" class="stage-chip active" data-act1-mode="0">1. Honeymoon Stack (Clean Orbit)</button>
+              <button type="button" class="stage-chip" data-act1-mode="1">2. Trigger Context Drift &amp; Tower Collapse</button>
+            </div>
+            <span>Left-click stage to advance</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- ====================================================================
+           ACT 2: OPENSPEC & SPEC-DRIVEN DEVELOPMENT (THE FIRST GAME CHANGER)
+           ==================================================================== -->
+      <section class="act-section act-layout-split align-center" data-act="2" id="act-section-2">
+        <div class="narrative-column">
+          <div class="act-eyebrow">Act 02 &bull; Pillar A: Spec-Driven Contract</div>
+          <h1 class="act-title">OpenSpec &amp; Spec-Driven Development (<code>opsx-*</code>)</h1>
+          <p class="act-subtitle">
+            Separate <strong>thinking and specification</strong> from coding: every change locks into a 5-stage contract before production edits start.
+          </p>
+
+          <article class="beat-card active-beat" data-beat-card="0">
+            <div class="beat-card-header">
+              <span>BEAT 2.1 &bull; 5-STAGE LIFECYCLE</span>
+              <span>Next: Bottlenecks &#8594;</span>
+            </div>
+            <h3>Crystallizing Chaos Into <code>openspec/</code> Contracts</h3>
+            <ul>
+              <li><code>opsx-explore</code>: Read-only thinking partner mapping code and trade-offs with zero writes.</li>
+              <li><code>opsx-propose</code>: Generates <code>proposal.md</code>, delta <code>specs/</code>, <code>design.md</code>, and <code>tasks.md</code>.</li>
+              <li><code>opsx-apply</code> &rarr; <code>opsx-verify</code> &rarr; <code>opsx-archive</code> / <code>opsx-bulk-archive</code>: Executes, audits scenarios, and syncs OpenWiki Mode B.</li>
+            </ul>
+          </article>
+
+          <article class="beat-card" data-beat-card="1">
+            <div class="beat-card-header">
+              <span>BEAT 2.2 &bull; WHERE OPENSPEC ALONE STALLS</span>
+              <span>Next: Beads + Superpowers &#8594;</span>
+            </div>
+            <h3>Two Shortcomings in Standard OpenSpec</h3>
+            <ul>
+              <li><strong>Static <code>tasks.md</code> (<code>- [ ]</code>):</strong> Plaintext checklists lack a <code>blocked-by</code> DAG, atomic claiming, and cross-session queries.</li>
+              <li><strong>Main-Branch Overload:</strong> Standard <code>opsx-apply</code> edits <code>main</code> directly inside one bloated context window.</li>
+            </ul>
+          </article>
+        </div>
+
+        <div class="visual-column">
+          <div class="visual-stage-header">
+            <span class="visual-stage-title">LIVE SIMULATION // OPENSPEC 5-STAGE CRYSTALLINE PIPELINE</span>
+            <span class="status-pill" id="act2-status-pill">STATE: SPEC CONTRACT LOCKED</span>
+          </div>
+          <div class="visual-canvas-mount">
+            <canvas class="act-canvas" id="canvas-act-2" width="680" height="360"></canvas>
+          </div>
+          <div class="visual-stage-footer" data-no-advance="true">
+            <div class="interactive-chip-row">
+              <button type="button" class="stage-chip active" data-act2-mode="0">1. Snap Chaos into 5-Stage Spec Pipeline</button>
+              <button type="button" class="stage-chip" data-act2-mode="1">2. Expose tasks.md &amp; Main-Branch Bottlenecks</button>
+            </div>
+            <span>5 Stages: Explore &rarr; Propose &rarr; Apply &rarr; Verify &rarr; Archive</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- ====================================================================
+           ACT 3: BEADS (bd) + SUPERPOWERS (SOLVING OPENSPEC'S SHORTCOMINGS)
+           ==================================================================== -->
+      <section class="act-section act-layout-split align-center" data-act="3" id="act-section-3">
+        <div class="narrative-column">
+          <div class="act-eyebrow">Act 03 &bull; Pillars B &amp; C: Issue Graph + Worktree Sandbox</div>
+          <h1 class="act-title">Beads (<code>bd</code>) + Superpowers: DAG &amp; Worktree TDD</h1>
+          <p class="act-subtitle">
+            Split the <strong>Control Plane</strong> from the <strong>Execution Sandbox</strong>: <strong>Beads</strong> schedules a live DAG and <strong>Superpowers</strong> builds in isolated Git Worktrees.
+          </p>
+
+          <article class="beat-card active-beat" data-beat-card="0">
+            <div class="beat-card-header">
+              <span>BEAT 3.1 &bull; BEADS (<code>bd</code>) DAG</span>
+              <span>Next: TDD Reactor &#8594;</span>
+            </div>
+            <h3>From <code>- [ ]</code> Lists to a 3-Level DAG (<code>.beads/</code>)</h3>
+            <ul>
+              <li><strong>3-Level Hierarchy:</strong> Parent <strong>Epic</strong> &rarr; topic <strong><code>feature</code></strong> &rarr; atomic <strong><code>task</code></strong> (<code>bd dep add</code>), indexed in <code>tasks.md</code>.</li>
+              <li><strong>Atomic Querying:</strong> <code>opsx-apply</code> claims ready leaves via <code>bd ready --parent &lt;epic-id&gt; --exclude-type=epic,feature</code>.</li>
+            </ul>
+          </article>
+
+          <article class="beat-card" data-beat-card="1">
+            <div class="beat-card-header">
+              <span>BEAT 3.2 &bull; WORKTREE TDD REACTOR</span>
+              <span>Next: OpenWiki Brain &#8594;</span>
+            </div>
+            <h3>Isolated <code>.worktrees/</code> Sandbox &amp; TDD Queue</h3>
+            <ul>
+              <li><strong>Topic Isolation (<code>superpowers-using-git-worktrees</code>):</strong> One <code>.worktrees/&lt;topic&gt;</code> per topic keeps <code>main</code> specs and <code>.beads/</code> clean.</li>
+              <li><strong>Sequential TDD &amp; Single Merge:</strong> Per subtask: micro-plan &rarr; <strong>Red &rarr; Green &rarr; Refactor</strong> &rarr; <code>git-commit</code>, then merge once via <code>superpowers-finishing-a-development-branch</code>.</li>
+            </ul>
+          </article>
+        </div>
+
+        <div class="visual-column">
+          <div class="visual-stage-header">
+            <span class="visual-stage-title">LIVE SIMULATION // 3D BEADS DAG &amp; WORKTREE TDD REACTOR</span>
+            <span class="status-pill" id="act3-status-pill">STATE: BEADS DAG READY</span>
+          </div>
+          <div class="visual-canvas-mount">
+            <canvas class="act-canvas" id="canvas-act-3" width="680" height="360"></canvas>
+          </div>
+          <div class="visual-stage-footer" data-no-advance="true">
+            <div class="interactive-chip-row">
+              <button type="button" class="stage-chip active" data-act3-mode="0">1. Extrude Checkboxes into 3D Beads DAG</button>
+              <button type="button" class="stage-chip" data-act3-mode="1">2. Dispatch Ready Bead into Worktree TDD Reactor</button>
+            </div>
+            <span>Control Plane (<code>.beads/</code>) &rarr; Sandbox (<code>.worktrees/bd-bt9.1</code>)</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- ====================================================================
+           ACT 4: OPENWIKI (THE LONG-TERM PROJECT BRAIN)
+           ==================================================================== -->
+      <section class="act-section act-layout-split align-center" data-act="4" id="act-section-4">
+        <div class="narrative-column">
+          <div class="act-eyebrow">Act 04 &bull; Pillar F: Institutional Memory SSOT</div>
+          <h1 class="act-title">OpenWiki (<code>openwiki/</code>): The Project&rsquo;s Neural Brain</h1>
+          <p class="act-subtitle">
+            Across dozens of features, agents suffer architectural amnesia. <strong>OpenWiki</strong> is the human- and AI-readable SSOT for durable project knowledge.
+          </p>
+
+          <article class="beat-card active-beat" data-beat-card="0">
+            <div class="beat-card-header">
+              <span>BEAT 4.1 &bull; MULTI-ARCHETYPE ENCYCLOPEDIA</span>
+              <span>Next: 3D Brain &#8594;</span>
+            </div>
+            <h3>Structured Knowledge Domains (<code>openwiki/INSTRUCTIONS.md</code>)</h3>
+            <ul>
+              <li><strong>Archetype A (System &amp; Code):</strong> Architecture, <strong>ADRs</strong> (<code>adr/</code>), <strong>Caveats</strong> (<code>caveats/</code>), and <strong>Runbooks</strong> (<code>runbooks/</code>).</li>
+              <li><strong>Archetype B (Research) &amp; C (Theses):</strong> Primary sources, <strong>Attribution Hygiene</strong>, value loops, <strong>OKF v0.2</strong> frontmatter, and <code>.claims/</code> sidecars.</li>
+            </ul>
+          </article>
+
+          <article class="beat-card" data-beat-card="1">
+            <div class="beat-card-header">
+              <span>BEAT 4.2 &bull; SYSTEM 1 RADAR &rarr; SYSTEM 2 READ</span>
+              <span>Next: Ponytail + Git &#8594;</span>
+            </div>
+            <h3>OKF v0.2 vs. Chunked RAG: Radar &rarr; Lossless Read</h3>
+            <ul>
+              <li><strong>System 1 Radar (&lt;50&nbsp;ms, Mode A (Read Protocol)):</strong> Unlike chunked RAG (which drops bottom-of-file caveats), <code>wiki_scout.py</code> runs zero-dep <code>SQLite FTS5</code> BM25 over <code>quickstart.md</code> &amp; <code>index.md</code> to return a ~1&nbsp;KB map with <code>lines=[...]</code>.</li>
+              <li><strong>System 2 Lossless Read &amp; Mode B:</strong> Agents read full ADRs &amp; caveats (in each <strong>Bead Execution Packet</strong>) &mdash; zero vector DB &mdash; while <code>opsx-archive</code> syncs insights via Mode B (<code>/openwiki:update</code>).</li>
+            </ul>
+          </article>
+        </div>
+
+        <div class="visual-column">
+          <div class="visual-stage-header">
+            <span class="visual-stage-title">LIVE SIMULATION // KNOWLEDGE BUBBLES &rarr; 3D SYNAPTIC BRAIN</span>
+            <span class="status-pill" id="act4-status-pill">STATE: KNOWLEDGE BUBBLES</span>
+          </div>
+          <div class="visual-canvas-mount">
+            <canvas class="act-canvas" id="canvas-act-4" width="680" height="360"></canvas>
+          </div>
+          <div class="visual-stage-footer" data-no-advance="true">
+            <div class="interactive-chip-row">
+              <button type="button" class="stage-chip active" data-act4-mode="0">1. Floating Codebase, ADR &amp; Caveat Bubbles</button>
+              <button type="button" class="stage-chip" data-act4-mode="1">2. Coalesce into 3D Rotating Synaptic Brain</button>
+            </div>
+            <span>Move mouse over brain for 3D cortical parallax</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- ====================================================================
+           ACT 5: PONYTAIL + GIT-COMMIT (ANTI-BLOAT & SECURITY AIRLOCK)
+           ==================================================================== -->
+      <section class="act-section act-layout-split align-center" data-act="5" id="act-section-5">
+        <div class="narrative-column">
+          <div class="act-eyebrow">Act 05 &bull; Pillars D &amp; E: Quality &amp; Safe Persistence</div>
+          <h1 class="act-title">Ponytail + <code>git-commit</code>: Anti-Bloat &amp; Diff Airlock</h1>
+          <p class="act-subtitle">
+            Two cross-cutting gates keep implementations minimal and every commit free of leaks.
+          </p>
+
+          <article class="beat-card active-beat" data-beat-card="0">
+            <div class="beat-card-header">
+              <span>BEAT 5.1 &bull; PILLAR D: PONYTAIL LADDER</span>
+              <span>Next: Laser Airlock &#8594;</span>
+            </div>
+            <h3>&ldquo;Rigorous About Reading, Lazy About Writing New Code&rdquo;</h3>
+            <ul>
+              <li>Walks 7 rungs and stops at first fit (click <strong>R1&ndash;R7</strong>): <strong>1. YAGNI</strong> &rarr; <strong>2. Existing Codebase</strong> &rarr; <strong>3. Stdlib</strong> &rarr; <strong>4. Native Platform</strong> &rarr; <strong>5. Installed Deps</strong> &rarr; <strong>6. One-Liner</strong> &rarr; <strong>7. Minimal Code</strong>.</li>
+              <li><strong>Protected Non-Negotiables:</strong> Validation, security, accessibility, and automated tests stay intact.</li>
+            </ul>
+          </article>
+
+          <article class="beat-card" data-beat-card="1">
+            <div class="beat-card-header">
+              <span>BEAT 5.2 &bull; PILLAR E: <code>git-commit</code> AIRLOCK</span>
+              <span>Next: Symphony &#8594;</span>
+            </div>
+            <h3>Audits Diffs &amp; Writes Clustered <code>[AI]</code> Commits</h3>
+            <ul>
+              <li>Scans <code>git diff --unified=0</code> to block <strong>PII, secrets, and absolute paths</strong>, then clusters by module:</li>
+            </ul>
+            <pre class="commit-example-box">[AI] feat(bd-a4f.2): add token cache and expiry tests
+* src/auth:
+- src/auth/token_cache.py
+- implement TTL token cache using stdlib time.monotonic
+* tests:
+- tests/test_token_cache.py
+- verify cache hit, expiry eviction, and secret redaction</pre>
+          </article>
+        </div>
+
+        <div class="visual-column">
+          <div class="visual-stage-header">
+            <span class="visual-stage-title">LIVE SIMULATION // GALLOPING PONYTAIL STALLION &amp; LASER AIRLOCK</span>
+            <span class="status-pill" id="act5-status-pill">STATE: PONYTAIL GALLOP</span>
+          </div>
+          <div class="visual-canvas-mount">
+            <canvas class="act-canvas" id="canvas-act-5" width="680" height="360"></canvas>
+          </div>
+          <div class="visual-stage-footer" data-no-advance="true">
+            <div class="interactive-chip-row">
+              <button type="button" class="stage-chip active" data-act5-mode="0">1. Ponytail Stallion (R1–R7 Jump)</button>
+              <button type="button" class="stage-chip" data-act5-mode="1">2. git-commit Laser &amp; [AI] Airlock</button>
+            </div>
+            <div class="interactive-chip-row" aria-label="Ponytail 7 Rungs">
+              <button type="button" class="stage-chip" data-ponytail-rung="1">R1: YAGNI</button>
+              <button type="button" class="stage-chip" data-ponytail-rung="2">R2: Existing Codebase</button>
+              <button type="button" class="stage-chip" data-ponytail-rung="3">R3: Standard Library</button>
+              <button type="button" class="stage-chip active" data-ponytail-rung="4">R4: Native Platform</button>
+              <button type="button" class="stage-chip" data-ponytail-rung="5">R5: Installed Deps</button>
+              <button type="button" class="stage-chip" data-ponytail-rung="6">R6: One-Liner</button>
+              <button type="button" class="stage-chip" data-ponytail-rung="7">R7: Minimal Code</button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ====================================================================
+           ACT 6: THE COMPLETE SIX-PILLAR SYMPHONY & REAL-WORLD PROOF
+           ==================================================================== -->
+      <section class="act-section act-layout-split align-center" data-act="6" id="act-section-6">
+        <div class="narrative-column">
+          <div class="act-eyebrow">Act 06 &bull; Closed-Loop Synthesis &amp; Quantified Impact</div>
+          <h1 class="act-title">The Complete Symphony: Compounding Engineering</h1>
+          <p class="act-subtitle">
+            Together, the Six Pillars turn AI coding into a self-reinforcing loop where every change makes the next one safer and faster.
+          </p>
+
+          <article class="beat-card active-beat" data-beat-card="0">
+            <div class="beat-card-header">
+              <span>BEAT 6.1 &bull; CLOSED-LOOP SYNERGY</span>
+              <span>Next: Quality KPIs &#8594;</span>
+            </div>
+            <h3>Control Plane &harr; Execution Sandbox Synergy</h3>
+            <ul>
+              <li><strong>Control Plane (<code>main</code>):</strong> <code>OpenWiki</code> grounds context &rarr; <code>OpenSpec</code> locks the contract &rarr; <code>Beads</code> schedules the DAG.</li>
+              <li><strong>Execution Sandbox (<code>.worktrees/</code>):</strong> <code>Superpowers</code> runs TDD &rarr; <code>Ponytail</code> trims bloat &rarr; <code>git-commit</code> seals diffs &rarr; <code>OpenWiki</code> absorbs ADRs &amp; caveats.</li>
+            </ul>
+          </article>
+
+          <article class="beat-card" data-beat-card="1">
+            <div class="beat-card-header">
+              <span>BEAT 6.2 &bull; ENGINEERING QUALITY KPIs</span>
+              <span>Next: Act 1 &#8634;</span>
+            </div>
+            <h3>Neopallium: Maintainability, Hygiene &amp; Continuity KPIs</h3>
+            <ul>
+              <li><strong>Maintainability &amp; Code Hygiene:</strong> <strong>52 archived OpenSpec changes</strong> across <strong>15,330 core tracked Python LOC</strong> (+ <code>1,650</code> trigger LOC) &amp; <strong>~1.4&times; test coverage</strong> (<strong>21,164 test LOC</strong> across <strong>41 test modules</strong>).</li>
+              <li><strong>Transparency &amp; Cross-Session Continuity:</strong> <strong>43 global OKF v0.2 pages</strong> (<code>24</code> ADRs, <code>9</code> caveats, <code>3</code> runbooks + indices; <strong>42 nodes &amp; 169 edges</strong>) &rarr; inspect live graph on stage.</li>
+            </ul>
+          </article>
+        </div>
+
+        <div class="visual-column">
+          <div class="visual-stage-header">
+            <span class="visual-stage-title">LIVE SIMULATION // 6-PILLAR CLOSED-LOOP CONSTELLATION</span>
+            <span class="status-pill" id="act6-status-pill">STATE: FULL ORBIT SYMPHONY</span>
+          </div>
+          <div class="visual-canvas-mount">
+            <canvas class="act-canvas" id="canvas-act-6" width="680" height="360"></canvas>
+          </div>
+          <div class="visual-stage-footer" data-no-advance="true">
+            <div class="interactive-chip-row">
+              <button type="button" class="stage-chip active" data-act6-mode="0">1. Live 6-Pillar Packet Constellation</button>
+              <button type="button" class="stage-chip" data-act6-mode="1">2. Vibe Coding vs. 6-Pillar Impact Radar</button>
+            </div>
+            <a class="hud-btn" href="openwiki-graph/index.html" target="_blank" rel="noopener noreferrer" data-no-advance="true" title="Opens external force-graph viewer (requires internet for online CDN libraries; deck itself is 100% offline)" style="border-color: var(--active-accent);">
+              &#x1F9E0; Open Sanitized OpenWiki Graph (42 Nodes &bull; 169 Edges &bull; Online CDN) &nearr;
+            </a>
+          </div>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <!-- BOTTOM TIMELINE DOCK -->
+  <footer id="timeline-dock" data-no-advance="true">
+    <nav class="timeline-steps" aria-label="Presentation acts">
+      <button type="button" class="timeline-node active" data-jump-act="1">
+        <span class="timeline-num">01</span> Vibe Coding
+      </button>
+      <button type="button" class="timeline-node" data-jump-act="2">
+        <span class="timeline-num">02</span> OpenSpec (SDD)
+      </button>
+      <button type="button" class="timeline-node" data-jump-act="3">
+        <span class="timeline-num">03</span> Beads + Superpowers
+      </button>
+      <button type="button" class="timeline-node" data-jump-act="4">
+        <span class="timeline-num">04</span> OpenWiki Brain
+      </button>
+      <button type="button" class="timeline-node" data-jump-act="5">
+        <span class="timeline-num">05</span> Ponytail + Git-Commit
+      </button>
+      <button type="button" class="timeline-node" data-jump-act="6">
+        <span class="timeline-num">06</span> Full Symphony
+      </button>
+    </nav>
+    <div class="dock-meta">
+      <div class="click-hint">Left-Click Stage: Next Beat/Act &bull; Right-Click / &larr;: Back &bull; [M]: Map</div>
+      <div class="dock-copyright">&copy; 2026 Alexander Katzmann &middot; <a href="https://github.com/akatzmann" target="_blank" rel="noopener noreferrer" data-no-advance="true">github.com/akatzmann</a></div>
+    </div>
+  </footer>
+
+  <!-- GOD-EYE OVERVIEW MODAL -->
+  <aside id="overview-map" data-no-advance="true" aria-label="Presentation Overview Map">
+    <div class="overview-wrap">
+      <div class="overview-grid">
+      <div class="overview-card" data-jump-act="1">
+        <div class="act-eyebrow">Act 01</div>
+        <h3>Vibe Coding &amp; The Entropy Collapse</h3>
+        <p>Starts with what developers know: rapid chat prototyping followed by context drift and tower collapse.</p>
+      </div>
+      <div class="overview-card" data-jump-act="2">
+        <div class="act-eyebrow">Act 02 &bull; Pillar A</div>
+        <h3>OpenSpec &amp; Spec-Driven Development</h3>
+        <p>Turns chaos into a 5-stage contract (<code>Explore &rarr; Propose &rarr; Apply &rarr; Verify &rarr; Archive</code>) and exposes the <code>tasks.md</code> bottleneck.</p>
+      </div>
+      <div class="overview-card" data-jump-act="3">
+        <div class="act-eyebrow">Act 03 &bull; Pillars B &amp; C</div>
+        <h3>Beads (<code>bd</code>) + Superpowers Worktrees</h3>
+        <p>Replaces flat checkboxes with a 3D DAG and dispatches atomic tasks into isolated <code>.worktrees/</code> TDD reactors.</p>
+      </div>
+      <div class="overview-card" data-jump-act="4">
+        <div class="act-eyebrow">Act 04 &bull; Pillar F</div>
+        <h3>OpenWiki: The Long-Term Neural Brain</h3>
+        <p>Floating knowledge bubbles (<code>ADRs</code>, <code>Caveats</code>, <code>Domain</code>, <code>Claims</code>) coalescing into a 3D synaptic encyclopedia.</p>
+      </div>
+      <div class="overview-card" data-jump-act="5">
+        <div class="act-eyebrow">Act 05 &bull; Pillars D &amp; E</div>
+        <h3>Ponytail Stallion + <code>git-commit</code> Airlock</h3>
+        <p>7-Step anti-bloat decision ladder horse + laser diff scanner blocking PII, secrets, and absolute paths.</p>
+      </div>
+      <div class="overview-card" data-jump-act="6">
+        <div class="act-eyebrow">Act 06 &bull; Closed Loop</div>
+        <h3>The Complete Six-Pillar Symphony</h3>
+        <p>Full orbital packet flow across Control Plane and Execution Sandbox + quantified repository proof.</p>
+      </div>
+      </div>
+      <div class="overview-credit">&copy; 2026 Alexander Katzmann &middot; <a href="https://github.com/akatzmann" target="_blank" rel="noopener noreferrer" data-no-advance="true">github.com/akatzmann</a></div>
+    </div>
+  </aside>
+
+  <script>
+    (function () {
+      const TOTAL_ACTS = 6;
+      const BEATS_PER_ACT = 2;
+      const ACT_TITLES = {
+        1: "Vibe Coding: The Siren Song & The Collapse",
+        2: "OpenSpec: Spec-Driven Development (opsx-*)",
+        3: "Beads (bd) + Superpowers: DAG & Worktree TDD",
+        4: "OpenWiki: The Long-Term Neural Brain (SSOT)",
+        5: "Ponytail + git-commit: Anti-Bloat & PII Airlock",
+        6: "The Complete Six-Pillar Agentic Symphony"
+      };
+
+      let currentAct = 1;
+      let currentBeat = 0;
+      let animClock = 0;
+      let mouseNormX = 0;
+      let mouseNormY = 0;
+
+      const htmlEl = document.documentElement;
+      const stageEl = document.getElementById("presentation-stage");
+      const cameraRig = document.getElementById("camera-rig");
+      const hudBadge = document.getElementById("hud-act-badge");
+      const hudBeatBadge = document.getElementById("hud-beat-badge");
+      const hudName = document.getElementById("hud-act-name");
+      const overviewMap = document.getElementById("overview-map");
+      const themeToggle = document.getElementById("theme-toggle");
+
+      function spawnRipple(x, y) {
+        const r = document.createElement("div");
+        r.className = "click-ripple";
+        r.style.left = x + "px";
+        r.style.top = y + "px";
+        document.body.appendChild(r);
+        setTimeout(() => r.remove(), 560);
+      }
+
+      function updateHash() {
+        const targetHash = currentBeat === 0 ? "#act-" + currentAct : "#act-" + currentAct + "." + currentBeat;
+        if (window.location.hash !== targetHash) {
+          if (window.history && window.history.replaceState) {
+            window.history.replaceState(null, "", targetHash);
+          } else {
+            window.location.hash = targetHash;
+          }
+        }
+      }
+
+      function parseHash() {
+        const hash = window.location.hash || "";
+        const match = hash.match(/^#act-([1-6])(?:\.([0-1]))?$/);
+        if (match) {
+          const act = parseInt(match[1], 10);
+          const beat = match[2] !== undefined ? parseInt(match[2], 10) : 0;
+          if (act >= 1 && act <= TOTAL_ACTS && beat >= 0 && beat < BEATS_PER_ACT) {
+            if (currentAct !== act || currentBeat !== beat) {
+              currentAct = act;
+              currentBeat = beat;
+              syncUI(false);
+            }
+          }
+        }
+      }
+
+      function scrollActiveTimelineNodeIntoView(smooth = true) {
+        const nav = document.querySelector("#timeline-dock .timeline-steps");
+        const activeNode = nav && nav.querySelector(".timeline-node.active");
+        if (!nav || !activeNode) return;
+        const navRect = nav.getBoundingClientRect();
+        const nodeRect = activeNode.getBoundingClientRect();
+        if (!navRect.width || !nodeRect.width) return;
+        const targetLeft = Math.max(
+          0,
+          nav.scrollLeft + (nodeRect.left - navRect.left) - (navRect.width - nodeRect.width) / 2
+        );
+        if (typeof nav.scrollTo === "function") {
+          nav.scrollTo({ left: targetLeft, behavior: smooth ? "smooth" : "auto" });
+        } else {
+          nav.scrollLeft = targetLeft;
+        }
+      }
+
+      function syncUI(syncHash = true) {
+        htmlEl.setAttribute("data-active-act", String(currentAct));
+        htmlEl.setAttribute("data-active-beat", String(currentBeat));
+        hudBadge.textContent = "ACT " + currentAct + " / " + TOTAL_ACTS;
+        if (hudBeatBadge) {
+          hudBeatBadge.textContent = "B" + (currentBeat + 1) + " / " + BEATS_PER_ACT;
+        }
+        hudName.textContent = ACT_TITLES[currentAct];
+
+        if (syncHash) {
+          updateHash();
+        }
+
+        // Camera 3D tilt transition effect on beat/act change
+        const tiltY = currentBeat === 0 ? -1.4 : 1.4;
+        cameraRig.style.transform = "rotateY(" + tiltY + "deg) translateZ(0px)";
+
+        document.querySelectorAll(".act-section").forEach((sec) => {
+          const isAct = Number(sec.getAttribute("data-act")) === currentAct;
+          sec.classList.toggle("active", isAct);
+          if (isAct) {
+            sec.querySelectorAll(".beat-card").forEach((card) => {
+              const b = Number(card.getAttribute("data-beat-card"));
+              card.classList.toggle("active-beat", b === currentBeat);
+            });
+          }
+        });
+
+        document.querySelectorAll("#beat-indicators .beat-pill").forEach((pill) => {
+          const b = Number(pill.getAttribute("data-jump-beat"));
+          pill.classList.toggle("active", b === currentBeat);
+        });
+
+        document.querySelectorAll("#timeline-dock .timeline-node").forEach((node) => {
+          const a = Number(node.getAttribute("data-jump-act"));
+          node.classList.toggle("active", a === currentAct);
+        });
+        scrollActiveTimelineNodeIntoView(!htmlEl.classList.contains("preload"));
+
+        // Sync per-act chip highlights and status pills
+        const statusMap = {
+          1: ["STATE: HONEYMOON ORBIT", "STATE: ENTROPY TOWER COLLAPSE"],
+          2: ["STATE: SPEC CONTRACT LOCKED", "STATE: TASKS.MD & MAIN BOTTLENECKS"],
+          3: ["STATE: 3D BEADS DAG READY", "STATE: WORKTREE TDD REACTOR ACTIVE"],
+          4: ["STATE: FLOATING KNOWLEDGE BUBBLES", "STATE: 3D SYNAPTIC BRAIN COALESCED"],
+          5: ["STATE: PONYTAIL 7-RUNG GALLOP", "STATE: GIT-COMMIT LASER AIRLOCK"],
+          6: ["STATE: FULL ORBIT SYMPHONY", "STATE: QUANTIFIED IMPACT SCORECARD"]
+        };
+        const pillEl = document.getElementById("act" + currentAct + "-status-pill");
+        if (pillEl && statusMap[currentAct]) {
+          pillEl.textContent = statusMap[currentAct][currentBeat];
+        }
+        document.querySelectorAll("[data-act" + currentAct + "-mode]").forEach((btn) => {
+          const m = Number(btn.getAttribute("data-act" + currentAct + "-mode"));
+          btn.classList.toggle("active", m === currentBeat);
+        });
+
+        // Act 5: conditionally display the 7 Ponytail rungs only during Beat 0 (stallion leap)
+        const act5RungRow = document.querySelector('[aria-label="Ponytail 7 Rungs"]');
+        if (act5RungRow) {
+          act5RungRow.style.display = (currentAct === 5 && currentBeat === 1) ? "none" : "";
+        }
+
+        animClock = 0;
+      }
+
+      function stepForward() {
+        if (currentBeat < BEATS_PER_ACT - 1) {
+          currentBeat += 1;
+        } else {
+          currentBeat = 0;
+          currentAct = currentAct < TOTAL_ACTS ? currentAct + 1 : 1;
+        }
+        syncUI();
+      }
+
+      function stepBackward() {
+        if (currentBeat > 0) {
+          currentBeat -= 1;
+        } else {
+          currentAct = currentAct > 1 ? currentAct - 1 : TOTAL_ACTS;
+          currentBeat = BEATS_PER_ACT - 1;
+        }
+        syncUI();
+      }
+
+      // Stage click-to-advance & right-click-to-rewind
+      stageEl.addEventListener("click", (e) => {
+        if (e.target.closest("[data-no-advance], button, a, input")) return;
+        if (window.innerWidth <= 768) return; // Prevent unintended advance on mobile portrait scroll/tap
+        spawnRipple(e.clientX, e.clientY);
+        if (e.shiftKey) {
+          stepBackward();
+        } else {
+          stepForward();
+        }
+      });
+
+      // Touch swipe gesture navigation on stage (non-intrusive to vertical scroll)
+      let touchStartX = 0;
+      let touchStartY = 0;
+      stageEl.addEventListener("touchstart", (e) => {
+        if (!e.changedTouches || e.changedTouches.length === 0) return;
+        touchStartX = e.changedTouches[0].clientX;
+        touchStartY = e.changedTouches[0].clientY;
+      }, { passive: true });
+
+      stageEl.addEventListener("touchend", (e) => {
+        if (!e.changedTouches || e.changedTouches.length === 0) return;
+        const touchEndX = e.changedTouches[0].clientX;
+        const touchEndY = e.changedTouches[0].clientY;
+        const deltaX = touchEndX - touchStartX;
+        const deltaY = touchEndY - touchStartY;
+        // Require at least 50px horizontal swipe and dominant horizontal intent
+        if (Math.abs(deltaX) > 50 && Math.abs(deltaX) > Math.abs(deltaY) * 1.5) {
+          if (deltaX < 0) {
+            stepForward();
+          } else {
+            stepBackward();
+          }
+        }
+      }, { passive: true });
+
+      stageEl.addEventListener("contextmenu", (e) => {
+        if (e.target.closest("[data-no-advance], button, a, input")) return;
+        e.preventDefault();
+        spawnRipple(e.clientX, e.clientY);
+        stepBackward();
+      });
+
+      window.addEventListener("mousemove", (e) => {
+        mouseNormX = (e.clientX / Math.max(1, window.innerWidth) - 0.5) * 2;
+        mouseNormY = (e.clientY / Math.max(1, window.innerHeight) - 0.5) * 2;
+      });
+
+      // Top HUD & Timeline Dock controls
+      if (hudBeatBadge) {
+        hudBeatBadge.addEventListener("click", () => {
+          currentBeat = currentBeat === 0 ? 1 : 0;
+          syncUI();
+        });
+      }
+      document.getElementById("btn-next").addEventListener("click", stepForward);
+      document.getElementById("btn-prev").addEventListener("click", stepBackward);
+      document.getElementById("btn-replay-anim").addEventListener("click", () => {
+        animClock = 0;
+      });
+      document.getElementById("btn-overview").addEventListener("click", () => {
+        overviewMap.classList.toggle("open");
+      });
+      overviewMap.addEventListener("click", (e) => {
+        const card = e.target.closest("[data-jump-act]");
+        if (card) {
+          currentAct = Number(card.getAttribute("data-jump-act"));
+          currentBeat = 0;
+          overviewMap.classList.remove("open");
+          syncUI();
+        } else if (e.target === overviewMap) {
+          overviewMap.classList.remove("open");
+        }
+      });
+
+      document.querySelectorAll("[data-jump-act]").forEach((btn) => {
+        if (btn.closest("#overview-map")) return;
+        btn.addEventListener("click", () => {
+          currentAct = Number(btn.getAttribute("data-jump-act"));
+          currentBeat = 0;
+          syncUI();
+        });
+      });
+
+      document.querySelectorAll("[data-jump-beat]").forEach((btn) => {
+        btn.addEventListener("click", () => {
+          currentBeat = Number(btn.getAttribute("data-jump-beat"));
+          syncUI();
+        });
+      });
+
+      for (let a = 1; a <= TOTAL_ACTS; a++) {
+        document.querySelectorAll("[data-act" + a + "-mode]").forEach((btn) => {
+          btn.addEventListener("click", () => {
+            currentAct = a;
+            currentBeat = Number(btn.getAttribute("data-act" + a + "-mode"));
+            syncUI();
+          });
+        });
+      }
+
+      const btnFullscreen = document.getElementById("btn-fullscreen");
+      function toggleFullscreen() {
+        if (!document.fullscreenElement) {
+          document.documentElement.requestFullscreen().catch(() => {});
+        } else {
+          document.exitFullscreen().catch(() => {});
+        }
+      }
+      if (btnFullscreen) {
+        btnFullscreen.addEventListener("click", toggleFullscreen);
+      }
+      document.addEventListener("fullscreenchange", () => {
+        if (btnFullscreen) {
+          btnFullscreen.setAttribute("aria-pressed", String(!!document.fullscreenElement));
+        }
+      });
+
+      themeToggle.addEventListener("click", () => {
+        const isLight = htmlEl.getAttribute("data-color-scheme") === "light";
+        const nextScheme = isLight ? "dark" : "light";
+        htmlEl.setAttribute("data-color-scheme", nextScheme);
+        themeToggle.setAttribute("aria-pressed", String(!isLight));
+      });
+
+      window.addEventListener("keydown", (e) => {
+        if (e.target && e.target.matches && e.target.matches("input, textarea, select")) return;
+        if (e.key === "ArrowRight" || e.key === " ") {
+          e.preventDefault();
+          stepForward();
+        } else if (e.key === "ArrowLeft" || e.key === "Backspace") {
+          e.preventDefault();
+          stepBackward();
+        } else if (e.key.toLowerCase() === "m") {
+          overviewMap.classList.toggle("open");
+        } else if (e.key === "Escape") {
+          overviewMap.classList.remove("open");
+        } else if (e.key >= "1" && e.key <= "6") {
+          e.preventDefault();
+          currentAct = Number(e.key);
+          currentBeat = 0;
+          overviewMap.classList.remove("open");
+          syncUI();
+        } else if (e.key.toLowerCase() === "f") {
+          e.preventDefault();
+          toggleFullscreen();
+        } else if (e.key.toLowerCase() === "t") {
+          e.preventDefault();
+          themeToggle.click();
+        } else if (e.key === "Home") {
+          e.preventDefault();
+          currentAct = 1;
+          currentBeat = 0;
+          overviewMap.classList.remove("open");
+          syncUI();
+        } else if (e.key === "End") {
+          e.preventDefault();
+          currentAct = TOTAL_ACTS;
+          currentBeat = BEATS_PER_ACT - 1;
+          overviewMap.classList.remove("open");
+          syncUI();
+        }
+      });
+
+      window.addEventListener("hashchange", parseHash);
+
+      /* ======================================================================
+         BESPOKE CANVAS ANIMATION ENGINES (ACTS 1 - 3 + AMBIENT BACKDROP)
+         ====================================================================== */
+      const bgCanvas = document.getElementById("stage-canvas");
+      const bgCtx = bgCanvas.getContext("2d");
+
+      function getCanvasPalette() {
+        const isLight = htmlEl.getAttribute("data-color-scheme") === "light";
+        return isLight
+          ? {
+              isLight: true,
+              ink: "#0f172a",
+              inkSub: "#1e293b",
+              inkMuted: "#475569",
+              radarGrid: "rgba(15, 23, 42, 0.22)",
+              ringStroke: "rgba(15, 23, 42, 0.28)",
+              hubFill: "rgba(5, 150, 105, 0.14)",
+              hubStroke: "#059669",
+              pillBg: "rgba(255, 255, 255, 0.92)",
+              pillBorder: "rgba(126, 34, 206, 0.35)",
+              ambientDot: "rgba(15, 23, 42, 0.12)"
+            }
+          : {
+              isLight: false,
+              ink: "#f8fafc",
+              inkSub: "#e2e8f0",
+              inkMuted: "#94a3b8",
+              radarGrid: "rgba(148, 163, 184, 0.25)",
+              ringStroke: "rgba(148, 163, 184, 0.35)",
+              hubFill: "rgba(16, 185, 129, 0.16)",
+              hubStroke: "#10b981",
+              pillBg: "rgba(15, 23, 42, 0.84)",
+              pillBorder: "rgba(168, 85, 247, 0.45)",
+              ambientDot: "rgba(148, 163, 184, 0.14)"
+            };
+      }
+
+      function resizeBg() {
+        const dpr = window.devicePixelRatio || 1;
+        bgCanvas.width = Math.round(window.innerWidth * dpr);
+        bgCanvas.height = Math.round(window.innerHeight * dpr);
+        bgCtx.setTransform(dpr, 0, 0, dpr, 0, 0);
+      }
+      window.addEventListener("resize", resizeBg);
+      resizeBg();
+
+      // Act 1: Vibe Coding Entropy Tower Simulation
+      const act1Blocks = Array.from({ length: 7 }, (_, i) => ({
+        label: [
+          "prompt('build app')",
+          "auth_helper_v2_final.js",
+          "npm i left-pad-ai-pro",
+          "globalState.mutated = true",
+          "fix_bug_break_login.ts",
+          "untested_hotfix_3am.py",
+          "TODO: why does this crash?"
+        ][i],
+        baseY: 290 - i * 36,
+        vx: (i % 2 === 0 ? 1 : -1) * (1.2 + i * 0.35),
+        vy: -1.8 - i * 0.25,
+        rot: (i % 2 === 0 ? 1 : -1) * (0.08 + i * 0.03)
+      }));
+
+      function drawAct1(ctx, w, h, t, beat) {
+        ctx.clearRect(0, 0, w, h);
+        const cx = w * 0.5;
+        // Draw prompt bar at bottom
+        ctx.fillStyle = "rgba(30, 41, 59, 0.85)";
+        ctx.strokeStyle = beat === 0 ? "#38bdf8" : "#f43f5e";
+        ctx.lineWidth = 2;
+        ctx.beginPath();
+        ctx.roundRect(cx - 190, h - 42, 380, 30, 8);
+        ctx.fill();
+        ctx.stroke();
+        ctx.fillStyle = "#f8fafc";
+        ctx.font = "600 12px monospace";
+        ctx.textAlign = "center";
+        ctx.fillText(
+          beat === 0
+            ? '> prompt: "Add feature fast, pure vibes!"'
+            : '> prompt #47: "Fix regression without breaking auth?!"',
+          cx,
+          h - 23
+        );
+
+        // Orbiting prompt particles
+        for (let p = 0; p < 22; p++) {
+          const ang = t * 0.03 + (p * Math.PI * 2) / 22;
+          const radX = beat === 0 ? 155 + Math.sin(t * 0.05 + p) * 18 : 210 + Math.sin(t * 0.12 + p * 3) * 65;
+          const radY = beat === 0 ? 110 : 145;
+          const px = cx + Math.cos(ang) * radX;
+          const py = h * 0.48 + Math.sin(ang) * radY;
+          ctx.fillStyle = beat === 0 ? "#38bdf8" : p % 2 === 0 ? "#f43f5e" : "#f59e0b";
+          ctx.beginPath();
+          ctx.arc(px, py, beat === 0 ? 3.2 : 4.2, 0, Math.PI * 2);
+          ctx.fill();
+        }
+
+        // Code Tower blocks
+        const collapseProgress = beat === 1 ? Math.min(1, t / 75) : 0;
+        act1Blocks.forEach((b, idx) => {
+          ctx.save();
+          const driftX = beat === 1 ? b.vx * collapseProgress * 58 + Math.sin(t * 0.2 + idx) * 6 : Math.sin(t * 0.04 + idx) * 3;
+          const driftY = beat === 1 ? Math.pow(collapseProgress, 1.6) * (idx * 22) : 0;
+          const angle = beat === 1 ? b.rot * collapseProgress * 4.5 : 0;
+          ctx.translate(cx + driftX, b.baseY + driftY);
+          ctx.rotate(angle);
+
+          ctx.fillStyle = beat === 0 ? "rgba(15, 23, 42, 0.92)" : "rgba(69, 10, 26, 0.9)";
+          ctx.strokeStyle = beat === 0 ? "#38bdf8" : "#f43f5e";
+          ctx.lineWidth = 1.6;
+          ctx.beginPath();
+          ctx.roundRect(-130, -14, 260, 28, 6);
+          ctx.fill();
+          ctx.stroke();
+
+          ctx.fillStyle = beat === 0 ? "#e2e8f0" : "#fecdd3";
+          ctx.font = "600 11.5px monospace";
+          ctx.textAlign = "center";
+          ctx.fillText(b.label, 0, 4);
+          ctx.restore();
+        });
+
+        // Red tangled dependency lightning on Beat 1
+        if (beat === 1) {
+          ctx.strokeStyle = "rgba(244, 63, 94, 0.72)";
+          ctx.lineWidth = 1.8;
+          for (let l = 0; l < 6; l++) {
+            ctx.beginPath();
+            ctx.moveTo(cx - 110 + l * 42, 70);
+            ctx.lineTo(cx + Math.sin(t * 0.3 + l) * 90, 175);
+            ctx.lineTo(cx - 80 + l * 35, 285);
+            ctx.stroke();
+          }
+        }
+      }
+
+      // Act 2: OpenSpec 5-Stage Crystalline Blueprint Snap
+      const opsxStages = [
+        { id: "Explore", sub: "Read-Only Map", color: "#38bdf8" },
+        { id: "Propose", sub: "Specs & Design", color: "#0ea5e9" },
+        { id: "Apply", sub: "Implementation", color: "#22d3ee" },
+        { id: "Verify", sub: "4D Audit", color: "#10b981" },
+        { id: "Archive", sub: "Sync & Memory", color: "#a855f7" }
+      ];
+
+      function drawAct2(ctx, w, h, t, beat) {
+        ctx.clearRect(0, 0, w, h);
+        const pal = getCanvasPalette();
+        const snap = beat === 1 ? 1 : Math.min(1, t / 45);
+        // Isometric blueprint grid
+        ctx.strokeStyle = pal.isLight ? "rgba(2, 132, 199, 0.14)" : "rgba(56, 189, 248, 0.12)";
+        ctx.lineWidth = 1;
+        for (let gx = 0; gx < w; gx += 34) {
+          ctx.beginPath();
+          ctx.moveTo(gx, 0);
+          ctx.lineTo(gx, h);
+          ctx.stroke();
+        }
+        for (let gy = 0; gy < h; gy += 34) {
+          ctx.beginPath();
+          ctx.moveTo(0, gy);
+          ctx.lineTo(w, gy);
+          ctx.stroke();
+        }
+
+        const startX = 76;
+        const stepX = (w - 152) / 4;
+        const pipeY = beat === 0 ? h * 0.48 : h * 0.34;
+
+        // Conduit line
+        ctx.strokeStyle = "rgba(56, 189, 248, 0.45)";
+        ctx.lineWidth = 3;
+        ctx.beginPath();
+        ctx.moveTo(startX, pipeY);
+        ctx.lineTo(startX + stepX * 4, pipeY);
+        ctx.stroke();
+
+        // Animated pulse packet along pipeline
+        const packetX = startX + ((t * 3.2) % (stepX * 4));
+        ctx.fillStyle = "#38bdf8";
+        ctx.beginPath();
+        ctx.arc(packetX, pipeY, 6, 0, Math.PI * 2);
+        ctx.fill();
+
+        opsxStages.forEach((st, i) => {
+          const targetX = startX + i * stepX;
+          const scatterX = targetX + (1 - snap) * Math.cos(i * 2.1) * 140;
+          const scatterY = pipeY + (1 - snap) * Math.sin(i * 1.7) * 110;
+
+          ctx.fillStyle = "rgba(15, 23, 42, 0.94)";
+          ctx.strokeStyle = beat === 1 && i === 2 ? "#f43f5e" : st.color;
+          ctx.lineWidth = 2.2;
+          ctx.beginPath();
+          ctx.roundRect(scatterX - 54, scatterY - 34, 108, 68, 10);
+          ctx.fill();
+          ctx.stroke();
+
+          ctx.fillStyle = "#f8fafc";
+          ctx.font = "700 12px sans-serif";
+          ctx.textAlign = "center";
+          ctx.fillText(st.id, scatterX, scatterY - 6);
+          ctx.fillStyle = "#94a3b8";
+          ctx.font = "500 10.5px monospace";
+          ctx.fillText(st.sub, scatterX, scatterY + 14);
+        });
+
+        // Beat 1: Highlight the two remaining cracks (flat tasks.md & single-branch apply)
+        if (beat === 1) {
+          ctx.fillStyle = "rgba(69, 10, 26, 0.88)";
+          ctx.strokeStyle = "#f43f5e";
+          ctx.lineWidth = 2;
+          ctx.beginPath();
+          ctx.roundRect(65, h * 0.62, 255, 96, 10);
+          ctx.roundRect(w - 320, h * 0.62, 255, 96, 10);
+          ctx.fill();
+          ctx.stroke();
+
+          ctx.fillStyle = "#fda4af";
+          ctx.font = "700 12px monospace";
+          ctx.textAlign = "left";
+          ctx.fillText("CRACK #1: Flat tasks.md", 82, h * 0.62 + 26);
+          ctx.fillStyle = "#e2e8f0";
+          ctx.font = "11.5px sans-serif";
+          ctx.fillText("- [ ] No dependency graph (DAG)", 82, h * 0.62 + 48);
+          ctx.fillText("- [ ] No blocker or claim state", 82, h * 0.62 + 68);
+
+          ctx.fillStyle = "#fda4af";
+          ctx.font = "700 12px monospace";
+          ctx.fillText("CRACK #2: Main-Branch Apply", w - 303, h * 0.62 + 26);
+          ctx.fillStyle = "#e2e8f0";
+          ctx.font = "11.5px sans-serif";
+          ctx.fillText("! Codes directly in main checkout", w - 303, h * 0.62 + 48);
+          ctx.fillText("! Giant single-context overload", w - 303, h * 0.62 + 68);
+        }
+      }
+
+      // Act 3: Sculpted 3D Plastic Beads DAG & Superpowers Worktree TDD Reactor
+      function draw3DBeadTube(ctx, x1, y1, x2, y2, activePulse, t) {
+        const dx = x2 - x1;
+        const dy = y2 - y1;
+        const len = Math.hypot(dx, dy) || 1;
+        const nx = (-dy / len) * 5;
+        const ny = (dx / len) * 5;
+
+        // Cast drop shadow under tube
+        ctx.save();
+        ctx.strokeStyle = "rgba(2, 6, 23, 0.55)";
+        ctx.lineWidth = 10;
+        ctx.lineCap = "round";
+        ctx.beginPath();
+        ctx.moveTo(x1 + 3, y1 + 6);
+        ctx.lineTo(x2 + 3, y2 + 6);
+        ctx.stroke();
+
+        // 3D cylindrical tube gradient across normal
+        const tubeGrad = ctx.createLinearGradient(x1 - nx, y1 - ny, x1 + nx, y1 + ny);
+        tubeGrad.addColorStop(0, "#78350f");
+        tubeGrad.addColorStop(0.35, "#fbbf24");
+        tubeGrad.addColorStop(0.55, "#fef3c7");
+        tubeGrad.addColorStop(1, "#451a03");
+        ctx.strokeStyle = tubeGrad;
+        ctx.lineWidth = 8.5;
+        ctx.beginPath();
+        ctx.moveTo(x1, y1);
+        ctx.lineTo(x2, y2);
+        ctx.stroke();
+
+        // Traveling energy bead along the tube
+        if (activePulse) {
+          const p = (t * 0.022) % 1;
+          const px = x1 + dx * p;
+          const py = y1 + dy * p;
+          ctx.fillStyle = "#6ee7b7";
+          ctx.beginPath();
+          ctx.arc(px, py, 4.2, 0, Math.PI * 2);
+          ctx.fill();
+        }
+        ctx.restore();
+      }
+
+      function drawPlasticBead(ctx, n) {
+        const { x, y, r, state, label } = n;
+        const pal = getCanvasPalette();
+        ctx.save();
+
+        // 1. Soft 3D cast drop shadow beneath the plastic sphere
+        const shadowGrad = ctx.createRadialGradient(x + 5, y + r + 7, 2, x + 5, y + r + 7, r * 1.05);
+        shadowGrad.addColorStop(0, pal.isLight ? "rgba(15, 23, 42, 0.28)" : "rgba(2, 6, 23, 0.72)");
+        shadowGrad.addColorStop(1, "rgba(2, 6, 23, 0)");
+        ctx.fillStyle = shadowGrad;
+        ctx.beginPath();
+        ctx.ellipse(x + 5, y + r + 7, r * 0.92, r * 0.34, 0, 0, Math.PI * 2);
+        ctx.fill();
+
+        // 2. Multi-stop 3D acrylic/plastic sphere shader
+        const sphereGrad = ctx.createRadialGradient(
+          x - r * 0.36,
+          y - r * 0.38,
+          r * 0.08,
+          x + r * 0.1,
+          y + r * 0.12,
+          r * 1.08
+        );
+        if (state === "epic") {
+          sphereGrad.addColorStop(0, "#fffbeb");
+          sphereGrad.addColorStop(0.26, "#fbbf24");
+          sphereGrad.addColorStop(0.72, "#b45309");
+          sphereGrad.addColorStop(0.92, "#451a03");
+          sphereGrad.addColorStop(1, "#f59e0b");
+        } else if (state === "ready" || state === "active") {
+          sphereGrad.addColorStop(0, "#ecfdf5");
+          sphereGrad.addColorStop(0.26, "#34d399");
+          sphereGrad.addColorStop(0.72, "#047857");
+          sphereGrad.addColorStop(0.92, "#022c22");
+          sphereGrad.addColorStop(1, "#10b981");
+        } else {
+          sphereGrad.addColorStop(0, "#f1f5f9");
+          sphereGrad.addColorStop(0.28, "#64748b");
+          sphereGrad.addColorStop(0.75, "#1e293b");
+          sphereGrad.addColorStop(0.92, "#090d16");
+          sphereGrad.addColorStop(1, "#475569");
+        }
+
+        ctx.fillStyle = sphereGrad;
+        ctx.beginPath();
+        ctx.arc(x, y, r, 0, Math.PI * 2);
+        ctx.fill();
+
+        // 3. Machined bead bore-hole ring on the side of the plastic bead
+        ctx.strokeStyle = "rgba(15, 23, 42, 0.55)";
+        ctx.lineWidth = 2;
+        ctx.beginPath();
+        ctx.ellipse(x + r * 0.58, y + r * 0.06, r * 0.14, r * 0.24, 0.2, 0, Math.PI * 2);
+        ctx.stroke();
+
+        // 4. Bottom-right subsurface plastic rim reflection
+        ctx.strokeStyle = "rgba(255, 255, 255, 0.32)";
+        ctx.lineWidth = 2.2;
+        ctx.beginPath();
+        ctx.arc(x, y, r - 1.8, 0.25, 1.35);
+        ctx.stroke();
+
+        // 5. Primary glossy top-left specular highlight crescent + secondary pinpoint reflection
+        const specularGrad = ctx.createLinearGradient(x - r * 0.65, y - r * 0.65, x - r * 0.05, y - r * 0.05);
+        specularGrad.addColorStop(0, "rgba(255, 255, 255, 0.92)");
+        specularGrad.addColorStop(1, "rgba(255, 255, 255, 0.04)");
+        ctx.fillStyle = specularGrad;
+        ctx.beginPath();
+        ctx.ellipse(x - r * 0.34, y - r * 0.36, r * 0.38, r * 0.19, -0.62, 0, Math.PI * 2);
+        ctx.fill();
+
+        // Pinpoint specular dot
+        ctx.fillStyle = "rgba(255, 255, 255, 0.95)";
+        ctx.beginPath();
+        ctx.arc(x - r * 0.14, y - r * 0.52, r * 0.08, 0, Math.PI * 2);
+        ctx.fill();
+
+        // Bead label pill above or below sphere
+        ctx.fillStyle = pal.ink;
+        ctx.font = "700 11px monospace";
+        ctx.textAlign = "center";
+        ctx.fillText(label, x, n.labelAbove ? y - r - 12 : y + r + 21);
+        ctx.restore();
+      }
+
+      function drawAct3(ctx, w, h, t, beat) {
+        ctx.clearRect(0, 0, w, h);
+        const pal = getCanvasPalette();
+        const nodes = [
+          { id: "bd-epic", label: "Epic: bd-bt9", x: 105, y: 118, r: 28, state: "epic" },
+          { id: "bd-1", label: "bd-bt9.1 (READY)", x: 265, y: 74, r: 25, state: beat === 1 ? "active" : "ready", labelAbove: true },
+          { id: "bd-2", label: "bd-bt9.2 (Blocked)", x: 265, y: 184, r: 24, state: beat === 1 && t > 85 ? "ready" : "blocked" },
+          { id: "bd-3", label: "bd-bt9.3 (Sub-Bead)", x: 135, y: 246, r: 22, state: beat === 1 && t > 140 ? "ready" : "blocked" }
+        ];
+
+        // 3D DAG connector tubes
+        draw3DBeadTube(ctx, nodes[0].x, nodes[0].y, nodes[1].x, nodes[1].y, true, t);
+        draw3DBeadTube(ctx, nodes[1].x, nodes[1].y, nodes[2].x, nodes[2].y, beat === 1, t);
+        draw3DBeadTube(ctx, nodes[3].x, nodes[3].y, nodes[2].x, nodes[2].y, beat === 1 && t > 90, t);
+
+        nodes.forEach((n) => drawPlasticBead(ctx, n));
+
+        // Superpowers Isolated Worktree TDD Reactor Capsule on the right
+        const rx = w * 0.73;
+        const ry = h * 0.52;
+        ctx.save();
+        ctx.strokeStyle = beat === 1 ? (pal.isLight ? "#059669" : "#10b981") : pal.ringStroke;
+        ctx.lineWidth = 2.5;
+        ctx.beginPath();
+        ctx.arc(rx, ry, 96, 0, Math.PI * 2);
+        ctx.stroke();
+
+        // Spinning RED -> GREEN -> REFACTOR arcs
+        const phaseColors = ["#f43f5e", "#10b981", "#38bdf8"];
+        const phaseLabels = ["1. RED (Fail Test)", "2. GREEN (Minimal)", "3. REFACTOR"];
+        for (let p = 0; p < 3; p++) {
+          const startA = t * (beat === 1 ? 0.045 : 0.01) + (p * Math.PI * 2) / 3;
+          ctx.strokeStyle = phaseColors[p];
+          ctx.lineWidth = 7;
+          ctx.beginPath();
+          ctx.arc(rx, ry, 74, startA, startA + 1.35);
+          ctx.stroke();
+        }
+
+        ctx.fillStyle = pal.ink;
+        ctx.font = "700 12px monospace";
+        ctx.textAlign = "center";
+        ctx.fillText(".worktrees/bd-bt9.1", rx, ry - 8);
+        const activePhase = phaseLabels[Math.floor((t / 35) % 3)];
+        ctx.fillStyle = pal.isLight ? "#047857" : "#10b981";
+        ctx.font = "600 11px monospace";
+        ctx.fillText(beat === 1 ? activePhase : "SANDBOX STANDBY", rx, ry + 12);
+        ctx.restore();
+
+        if (beat === 1) {
+          // Dispatch beam from bd-1 to worktree reactor
+          ctx.strokeStyle = "#10b981";
+          ctx.setLineDash([6, 4]);
+          ctx.lineWidth = 2.2;
+          ctx.beginPath();
+          ctx.moveTo(nodes[1].x + 25, nodes[1].y);
+          ctx.lineTo(rx - 96, ry);
+          ctx.stroke();
+          ctx.setLineDash([]);
+        }
+      }
+
+      // ====================================================================
+      // Act 4: OpenWiki — Floating Knowledge Bubbles -> 3D Synaptic Brain
+      // ====================================================================
+      const brainTagLabels = [
+        "System 1: FTS5 Scout",
+        "System 2: Full ADRs",
+        "OKF v0.2 Frontmatter",
+        "ADR-0028: Wiki Scout",
+        "ADR-0025: Anti-Exfil",
+        "ADR-0026: Token Broker",
+        "Caveats & Invariants",
+        "Runbook: Token Rotation",
+        "Architecture SSOT",
+        "INSTRUCTIONS.md"
+      ];
+
+      const brainTagIndices = new Map(
+        brainTagLabels.map((lbl, idx) => [Math.round((idx + 0.5) * (148 / brainTagLabels.length)), lbl])
+      );
+
+      const brainBubbles = Array.from({ length: 148 }, (_, i) => {
+        const hemi = i % 2 === 0 ? -1 : 1;
+        const u = ((i * 0.6180339887) % 1) * Math.PI * 2;
+        const v = Math.acos(2 * ((i + 0.5) / 148) - 1);
+        const fold = 1 + 0.12 * Math.sin(u * 4) * Math.cos(v * 3);
+        const rx = 74 * fold;
+        const ry = 84 * fold;
+        const rz = 98 * fold;
+
+        // Dual-hemisphere 3D brain coordinates
+        const bx = hemi * (22 + Math.abs(rx * Math.sin(v) * Math.cos(u)));
+        const by = ry * Math.cos(v) * 0.85;
+        const bz = rz * Math.sin(v) * Math.sin(u);
+
+        // Scattered floating bubble coordinates for Beat 0
+        const sx = ((i * 97) % 580) - 290;
+        const sy = ((i * 61) % 270) - 135;
+        const sz = ((i * 43) % 220) - 110;
+        const tag = brainTagIndices.get(i) || null;
+
+        return {
+          bx,
+          by,
+          bz,
+          sx,
+          sy,
+          sz,
+          r: tag ? 8.5 : 3.2 + (i % 4) * 1.1,
+          tag,
+          hemi
+        };
+      });
+
+      function drawAct4Brain(ctx, w, h, t, beat) {
+        ctx.clearRect(0, 0, w, h);
+        const pal = getCanvasPalette();
+        const cx = w * 0.5;
+        const cy = beat === 1 ? h * 0.43 : h * 0.5;
+        const coalesce = beat === 1 ? Math.min(1, t / 55) : 0;
+
+        const rotY = t * 0.014 + mouseNormX * 0.55;
+        const rotX = 0.22 + mouseNormY * 0.35;
+        const cosY = Math.cos(rotY);
+        const sinY = Math.sin(rotY);
+        const cosX = Math.cos(rotX);
+        const sinX = Math.sin(rotX);
+
+        const projected = brainBubbles.map((b, idx) => {
+          const floatX = b.sx + Math.sin(t * 0.025 + idx) * 18;
+          const floatY = b.sy + Math.cos(t * 0.02 + idx * 0.7) * 16;
+          const floatZ = b.sz;
+
+          const x0 = floatX * (1 - coalesce) + b.bx * coalesce;
+          const y0 = floatY * (1 - coalesce) + b.by * coalesce;
+          const z0 = floatZ * (1 - coalesce) + b.bz * coalesce;
+
+          // 3D rotation
+          const x1 = x0 * cosY - z0 * sinY;
+          const z1 = z0 * cosY + x0 * sinY;
+          const y2 = y0 * cosX - z1 * sinX;
+          const z2 = z1 * cosX + y0 * sinX;
+
+          const scale = 340 / (340 + z2 + 140);
+          return {
+            px: cx + x1 * scale * 1.25,
+            py: cy + y2 * scale * 1.25,
+            z: z2,
+            scale,
+            r: b.r * scale,
+            tag: b.tag,
+            hemi: b.hemi,
+            idx
+          };
+        });
+
+        projected.sort((a, b) => b.z - a.z);
+
+        // Draw synaptic neural connections when coalescing into the Brain
+        if (coalesce > 0.25) {
+          ctx.lineWidth = 1.1;
+          for (let i = 0; i < projected.length; i += 2) {
+            const p1 = projected[i];
+            const p2 = projected[(i + 7) % projected.length];
+            const dist = Math.hypot(p1.px - p2.px, p1.py - p2.py);
+            if (dist < 78) {
+              ctx.strokeStyle =
+                (i + Math.floor(t / 8)) % 11 === 0
+                  ? "rgba(56, 189, 248, 0.78)"
+                  : "rgba(168, 85, 247, 0.26)";
+              ctx.beginPath();
+              ctx.moveTo(p1.px, p1.py);
+              ctx.lineTo(p2.px, p2.py);
+              ctx.stroke();
+            }
+          }
+        }
+
+        // Draw translucent glowing knowledge bubbles
+        projected.forEach((p) => {
+          const grad = ctx.createRadialGradient(
+            p.px - p.r * 0.3,
+            p.py - p.r * 0.3,
+            p.r * 0.1,
+            p.px,
+            p.py,
+            p.r * 1.35
+          );
+          if (p.tag) {
+            grad.addColorStop(0, pal.isLight ? "#a855f7" : "#f0abfc");
+            grad.addColorStop(0.6, pal.isLight ? "#7e22ce" : "#a855f7");
+            grad.addColorStop(1, pal.isLight ? "rgba(2, 132, 199, 0.35)" : "rgba(56, 189, 248, 0.2)");
+          } else if (p.hemi < 0) {
+            grad.addColorStop(0, pal.isLight ? "rgba(147, 51, 234, 0.85)" : "rgba(216, 180, 254, 0.9)");
+            grad.addColorStop(1, pal.isLight ? "rgba(126, 34, 206, 0.22)" : "rgba(147, 51, 234, 0.18)");
+          } else {
+            grad.addColorStop(0, pal.isLight ? "rgba(2, 132, 199, 0.85)" : "rgba(125, 211, 252, 0.9)");
+            grad.addColorStop(1, pal.isLight ? "rgba(3, 105, 161, 0.22)" : "rgba(2, 132, 199, 0.18)");
+          }
+          ctx.fillStyle = grad;
+          ctx.beginPath();
+          ctx.arc(p.px, p.py, Math.max(2, p.r), 0, Math.PI * 2);
+          ctx.fill();
+        });
+
+        // Render foreground tag pills after dots with simple vertical de-overlap
+        const placedBoxes = [];
+        const maxLabelY = beat === 1 ? h - 54 : h - 18;
+        ctx.font = "700 10px monospace";
+        ctx.textAlign = "center";
+        projected.filter((p) => p.tag).forEach((p) => {
+          const textW = ctx.measureText(p.tag).width;
+          const boxW = textW + 14;
+          const boxH = 18;
+          const cxLabel = Math.max(boxW * 0.5 + 8, Math.min(w - boxW * 0.5 - 8, p.px));
+          const baseY = Math.max(10, Math.min(maxLabelY - boxH, p.py - p.r - boxH - 4));
+          let boxY = baseY;
+          for (let step = 1; step <= 14; step++) {
+            const clash = placedBoxes.some(
+              (b) => Math.abs(b.cx - cxLabel) < (b.w + boxW) * 0.5 + 6 && Math.abs(b.y - boxY) < boxH + 4
+            );
+            if (!clash) break;
+            const dir = step % 2 === 1 ? 1 : -1;
+            const dist = Math.ceil(step / 2) * (boxH + 4);
+            const cand = baseY + dir * dist;
+            if (cand >= 10 && cand <= maxLabelY - boxH) {
+              boxY = cand;
+            }
+          }
+          placedBoxes.push({ cx: cxLabel, w: boxW, y: boxY });
+
+          ctx.fillStyle = pal.pillBg;
+          ctx.strokeStyle = pal.pillBorder;
+          ctx.lineWidth = 1.1;
+          ctx.beginPath();
+          ctx.roundRect(cxLabel - boxW * 0.5, boxY, boxW, boxH, 6);
+          ctx.fill();
+          ctx.stroke();
+
+          ctx.fillStyle = pal.ink;
+          ctx.fillText(p.tag, cxLabel, boxY + 12.5);
+        });
+
+        // Beat 1: System 1/2 lossless retrieval vs. Chunked RAG contrast bar
+        if (beat === 1) {
+          const barY = h - 38;
+          const barH = 28;
+          ctx.fillStyle = pal.isLight ? "rgba(255, 241, 242, 0.96)" : "rgba(69, 10, 26, 0.88)";
+          ctx.strokeStyle = pal.isLight ? "#e11d48" : "#f43f5e";
+          ctx.lineWidth = 1.5;
+          ctx.beginPath();
+          ctx.roundRect(14, barY, 270, barH, 8);
+          ctx.fill();
+          ctx.stroke();
+
+          ctx.fillStyle = pal.isLight ? "#9f1239" : "#fda4af";
+          ctx.font = "700 10px monospace";
+          ctx.textAlign = "center";
+          ctx.fillText("Chunked RAG (500t): drops bottom caveats", 149, barY + 17.5);
+
+          ctx.fillStyle = pal.pillBg;
+          ctx.strokeStyle = pal.isLight ? "#7e22ce" : "#a855f7";
+          ctx.lineWidth = 1.5;
+          ctx.beginPath();
+          ctx.roundRect(298, barY, 368, barH, 8);
+          ctx.fill();
+          ctx.stroke();
+
+          ctx.fillStyle = pal.isLight ? "#6b21a8" : "#e9d5ff";
+          ctx.fillText("System 1: FTS5 (<50ms) -> System 2: Full ADR/Caveat", 482, barY + 17.5);
+        }
+      }
+
+      // ====================================================================
+      // Act 5: Ponytail Galloping Stallion + git-commit PII Laser Airlock
+      // ====================================================================
+      let selectedPonytailRung = 4;
+      let horseJumpFromRung = 4;
+      let horseJumpProgress = 1;
+      let horseLandingFlash = 0;
+
+      const ponytailRungData = [
+        { r: 1, name: "R1: YAGNI", desc: "Skip unrequested features entirely" },
+        { r: 2, name: "R2: Existing Codebase", desc: "Reuse existing repo helpers" },
+        { r: 3, name: "R3: Standard Library", desc: "Use language stdlib (unittest, html.parser)" },
+        { r: 4, name: "R4: Native Platform", desc: "Use native browser Canvas, SVG & CSS3" },
+        { r: 5, name: "R5: Installed Deps", desc: "Use manifest packages before adding new ones" },
+        { r: 6, name: "R6: One-Liner", desc: "Prefer direct expressions over ceremony" },
+        { r: 7, name: "R7: Minimal Code", desc: "Smallest, cleanest implementation" }
+      ];
+
+      function getPonytailRungAnchor(rungNumber, w, h) {
+        const idx = Math.max(0, Math.min(6, rungNumber - 1));
+        const startX = 48;
+        const stepW = (w - 96) / 7;
+        const rx = startX + idx * stepW;
+        const barH = 38 + idx * 14;
+        const ry = h - 55 - barH;
+        return {
+          cx: rx + (stepW - 10) / 2,
+          topY: ry,
+          rx,
+          ry,
+          barW: stepW - 10,
+          barH
+        };
+      }
+
+      function triggerHorseJumpToRung(targetRung) {
+        const clamped = Math.max(1, Math.min(7, Number(targetRung) || 4));
+        horseJumpFromRung = selectedPonytailRung;
+        selectedPonytailRung = clamped;
+        horseJumpProgress = 0;
+        horseLandingFlash = 18;
+
+        // Ensure Act 5 is displaying Beat 0 (the Ponytail Rung stage) when a rung is clicked
+        if (currentAct === 5 && currentBeat !== 0) {
+          currentBeat = 0;
+          syncUI();
+        }
+
+        document.querySelectorAll("[data-ponytail-rung]").forEach((b) => {
+          b.classList.toggle("active", Number(b.getAttribute("data-ponytail-rung")) === selectedPonytailRung);
+        });
+      }
+
+      document.querySelectorAll("[data-ponytail-rung]").forEach((btn) => {
+        btn.addEventListener("click", () => {
+          triggerHorseJumpToRung(Number(btn.getAttribute("data-ponytail-rung")));
+        });
+      });
+
+      // Allow clicking directly on any R1..R7 bar inside the Act 5 canvas to make the stallion jump
+      const canvasAct5El = document.getElementById("canvas-act-5");
+      if (canvasAct5El) {
+        canvasAct5El.addEventListener("click", (ev) => {
+          if (currentAct !== 5 || currentBeat !== 0) return;
+          const rect = canvasAct5El.getBoundingClientRect();
+          const logicalW = 680;
+          const logicalH = 360;
+          const scaleX = logicalW / (rect.width || 1);
+          const clickX = (ev.clientX - rect.left) * scaleX;
+          for (let r = 1; r <= 7; r++) {
+            const anchor = getPonytailRungAnchor(r, logicalW, logicalH);
+            if (clickX >= anchor.rx && clickX <= anchor.rx + anchor.barW) {
+              ev.stopPropagation();
+              triggerHorseJumpToRung(r);
+              break;
+            }
+          }
+        });
+      }
+
+      function drawGallopingStallion(ctx, hx, hy, t, jumpPitchOffset = 0) {
+        const pal = getCanvasPalette();
+        const stride = t * 0.21;
+        const bob = horseJumpProgress < 1 ? 0 : Math.sin(stride * 2) * 4.5;
+        const pitch = (horseJumpProgress < 1 ? jumpPitchOffset : Math.cos(stride * 2) * 0.08);
+
+        ctx.save();
+        ctx.translate(hx, hy + bob);
+        ctx.rotate(pitch);
+        ctx.scale(0.84, 0.84);
+
+        // Flowing neon particle Ponytail streaming from the crown!
+        for (let p = 0; p < 26; p++) {
+          const lag = p * 5.2;
+          const px = 22 - lag - Math.cos(stride + p * 0.3) * 4;
+          const py = -38 + Math.sin(stride * 1.4 - p * 0.38) * (4 + p * 0.48);
+          const radius = Math.max(1.4, 5.8 - p * 0.18);
+          ctx.fillStyle = p % 2 === 0 ? "#fb923c" : "#f43f5e";
+          ctx.beginPath();
+          ctx.arc(px, py, radius, 0, Math.PI * 2);
+          ctx.fill();
+        }
+
+        // Flowing tail ribbons behind rear hip
+        for (let p = 0; p < 18; p++) {
+          const tx = -42 - p * 4.5;
+          const ty = -4 + Math.sin(stride * 1.6 - p * 0.45) * (3 + p * 0.55);
+          ctx.fillStyle = "rgba(251, 146, 60, 0.78)";
+          ctx.beginPath();
+          ctx.arc(tx, ty, Math.max(1.5, 4.5 - p * 0.2), 0, Math.PI * 2);
+          ctx.fill();
+        }
+
+        // Articulated 4-leg gallop kinematics
+        const legPhases = [0, 0.45, Math.PI, Math.PI + 0.45];
+        const hipOffsets = [
+          { x: 26, y: 6 },
+          { x: 18, y: 6 },
+          { x: -30, y: 4 },
+          { x: -38, y: 4 }
+        ];
+
+        hipOffsets.forEach((hip, idx) => {
+          const ph = stride + legPhases[idx];
+          const upperAngle = Math.sin(ph) * 0.68;
+          const kneeX = hip.x + Math.sin(upperAngle) * 24;
+          const kneeY = hip.y + Math.cos(upperAngle) * 24;
+          const lowerAngle = upperAngle - 0.55 + Math.cos(ph) * 0.55;
+          const hoofX = kneeX + Math.sin(lowerAngle) * 22;
+          const hoofY = kneeY + Math.cos(lowerAngle) * 22;
+
+          ctx.strokeStyle = idx % 2 === 0 ? "#fdba74" : "#fb923c";
+          ctx.lineWidth = 4.2;
+          ctx.lineCap = "round";
+          ctx.beginPath();
+          ctx.moveTo(hip.x, hip.y);
+          ctx.lineTo(kneeX, kneeY);
+          ctx.lineTo(hoofX, hoofY);
+          ctx.stroke();
+
+          ctx.fillStyle = "#38bdf8";
+          ctx.beginPath();
+          ctx.arc(hoofX, hoofY, 3, 0, Math.PI * 2);
+          ctx.fill();
+        });
+
+        // Sculpted geometric stallion torso, chest, neck & head
+        const bodyGrad = ctx.createLinearGradient(-45, -30, 50, 15);
+        bodyGrad.addColorStop(0, "#ea580c");
+        bodyGrad.addColorStop(0.5, "#fb923c");
+        bodyGrad.addColorStop(1, "#fde047");
+        ctx.fillStyle = bodyGrad;
+        ctx.strokeStyle = pal.isLight ? "#9a3412" : "#fff7ed";
+        ctx.lineWidth = 1.6;
+
+        ctx.beginPath();
+        ctx.moveTo(-42, -8);
+        ctx.quadraticCurveTo(-5, -18, 28, -12);
+        ctx.lineTo(44, -38); // Neck up to crown
+        ctx.lineTo(62, -30); // Muzzle
+        ctx.lineTo(48, -20); // Jaw
+        ctx.lineTo(32, 8);   // Chest
+        ctx.quadraticCurveTo(-8, 14, -40, 8);
+        ctx.closePath();
+        ctx.fill();
+        ctx.stroke();
+
+        ctx.restore();
+      }
+
+      function drawAct5PonytailAndGit(ctx, w, h, t, beat) {
+        ctx.clearRect(0, 0, w, h);
+        const pal = getCanvasPalette();
+
+        if (beat === 0) {
+          // Draw the 7 Ponytail Rungs across the stage
+          ponytailRungData.forEach((item) => {
+            const anchor = getPonytailRungAnchor(item.r, w, h);
+            const isSel = item.r === selectedPonytailRung;
+
+            ctx.fillStyle = isSel
+              ? (pal.isLight ? "rgba(30, 41, 59, 0.92)" : "rgba(251, 146, 60, 0.32)")
+              : (pal.isLight ? "rgba(15, 23, 42, 0.86)" : "rgba(30, 41, 59, 0.78)");
+            ctx.strokeStyle = isSel ? "#fb923c" : "rgba(148, 163, 184, 0.35)";
+            ctx.lineWidth = isSel ? 2.6 : 1.3;
+            ctx.beginPath();
+            ctx.roundRect(anchor.rx, anchor.ry, anchor.barW, anchor.barH, 6);
+            ctx.fill();
+            ctx.stroke();
+
+            ctx.fillStyle = isSel ? "#fde047" : "#cbd5e1";
+            ctx.font = "700 10.5px monospace";
+            ctx.textAlign = "center";
+            ctx.fillText("R" + item.r, anchor.cx, anchor.ry + 18);
+          });
+
+          // Advance parabolic jump progress when jumping to a clicked R1..R7 bar
+          const fromAnchor = getPonytailRungAnchor(horseJumpFromRung, w, h);
+          const toAnchor = getPonytailRungAnchor(selectedPonytailRung, w, h);
+
+          if (horseJumpProgress < 1) {
+            horseJumpProgress = Math.min(1, horseJumpProgress + 0.045);
+          } else if (horseLandingFlash > 0) {
+            horseLandingFlash--;
+          }
+
+          // Smooth cubic easing for horizontal leap + parabolic vertical arc
+          const ease = 1 - Math.pow(1 - horseJumpProgress, 3);
+          const distanceRungs = Math.abs(selectedPonytailRung - horseJumpFromRung);
+          const arcHeight = horseJumpProgress < 1 ? (52 + distanceRungs * 14) * Math.sin(horseJumpProgress * Math.PI) : 0;
+
+          // When landed, gallop atop the selected R1..R7 bar with a gentle local canter
+          const canterOffset = horseJumpProgress >= 1 ? Math.sin(t * 0.05) * 14 : 0;
+          const horseX = fromAnchor.cx + (toAnchor.cx - fromAnchor.cx) * ease + canterOffset;
+          const fromHoofY = fromAnchor.topY - 43;
+          const toHoofY = toAnchor.topY - 43;
+          const horseY = fromHoofY + (toHoofY - fromHoofY) * ease - arcHeight;
+
+          // Draw dashed glowing jump trajectory arc during leap
+          if (horseJumpProgress < 1) {
+            ctx.save();
+            ctx.strokeStyle = "rgba(253, 224, 71, 0.55)";
+            ctx.setLineDash([4, 4]);
+            ctx.lineWidth = 2;
+            ctx.beginPath();
+            ctx.moveTo(fromAnchor.cx, fromAnchor.topY - 8);
+            ctx.quadraticCurveTo(
+              (fromAnchor.cx + toAnchor.cx) / 2,
+              Math.min(fromAnchor.topY, toAnchor.topY) - 70 - distanceRungs * 12,
+              toAnchor.cx,
+              toAnchor.topY - 8
+            );
+            ctx.stroke();
+            ctx.restore();
+          }
+
+          // Landing sparks on the target R1..R7 bar top
+          if (horseJumpProgress >= 1 && horseLandingFlash > 0) {
+            for (let s = 0; s < 6; s++) {
+              const ang = -Math.PI * (0.15 + (s / 5) * 0.7);
+              const dist = (18 - horseLandingFlash) * 2.2;
+              ctx.fillStyle = s % 2 === 0 ? "#fde047" : "#38bdf8";
+              ctx.beginPath();
+              ctx.arc(
+                toAnchor.cx + Math.cos(ang) * dist,
+                toAnchor.topY - 4 + Math.sin(ang) * dist * 0.5,
+                2.6,
+                0,
+                Math.PI * 2
+              );
+              ctx.fill();
+            }
+          }
+
+          const jumpPitch = (0.5 - horseJumpProgress) * -0.42;
+          drawGallopingStallion(ctx, horseX, horseY, t, jumpPitch);
+
+          // Selected rung callout banner
+          const activeRung = ponytailRungData[selectedPonytailRung - 1] || ponytailRungData[3];
+          ctx.fillStyle = "rgba(15, 23, 42, 0.92)";
+          ctx.strokeStyle = "#fb923c";
+          ctx.lineWidth = 1.8;
+          ctx.beginPath();
+          ctx.roundRect(12, 16, w - 24, 40, 8);
+          ctx.fill();
+          ctx.stroke();
+          ctx.fillStyle = "#fde047";
+          const captionText = activeRung.name + " — " + activeRung.desc;
+          let captionPx = 12;
+          ctx.font = "700 " + captionPx + "px monospace";
+          while (ctx.measureText(captionText).width > w - 48 && captionPx > 8) {
+            captionPx -= 0.5;
+            ctx.font = "700 " + captionPx + "px monospace";
+          }
+          ctx.textAlign = "center";
+          ctx.fillText(captionText, w / 2, 40);
+        } else {
+          // Beat 1: Symmetrical Dual Panels — Left: Incoming Diff Airlock Panel | Right: Structured [AI] Commit Card
+          const panelW = 310;
+          const panelLeftX = 20;
+          const panelRightX = w - panelW - 20; // 350
+          const startY = 24;
+          const cardH = 264;
+
+          // --- LEFT PANEL: INCOMING DIFF STREAM AIRLOCK ---
+          ctx.fillStyle = "rgba(15, 23, 42, 0.94)";
+          ctx.strokeStyle = "#38bdf8";
+          ctx.lineWidth = 1.8;
+          ctx.beginPath();
+          ctx.roundRect(panelLeftX, startY, panelW, cardH, 10);
+          ctx.fill();
+          ctx.stroke();
+
+          // Left Panel Header
+          ctx.fillStyle = "#38bdf8";
+          ctx.font = "700 10.2px monospace";
+          ctx.textAlign = "left";
+          ctx.fillText("INCOMING DIFF AIRLOCK // PII SCANNER", panelLeftX + 12, startY + 18);
+
+          // Sweeping Vertical Cyan Laser Beam within left panel bounds
+          const laserMinX = panelLeftX + 10;
+          const laserMaxX = panelLeftX + panelW - 10;
+          const laserX = laserMinX + ((t * 3.2) % (laserMaxX - laserMinX));
+
+          const diffRows = [
+            { text: "+ src/auth/token_cache.py", safe: true, tag: "CLUSTER: src/auth" },
+            { text: "- AWS_SECRET = 'AKIA_LEAK_99'", safe: false, tag: "BLOCKED: SECRET" },
+            { text: "+ tests/test_token_cache.py", safe: true, tag: "CLUSTER: tests" },
+            { text: "- email = 'pii@personal.org'", safe: false, tag: "BLOCKED: PII" },
+            { text: "- path = '/Users/jdoe/local'", safe: false, tag: "BLOCKED: ABS PATH" }
+          ];
+
+          const diffBoxW = panelW - 24; // 286
+          const diffBoxX = panelLeftX + 12; // 32
+          const diffStartY = startY + 27; // 51
+          const rowH = 38;
+          const rowGap = 5;
+
+          diffRows.forEach((row, idx) => {
+            const ry = diffStartY + idx * (rowH + rowGap);
+            const rowThreshold = diffBoxX + 35 + idx * 32;
+            const scanned = laserX >= rowThreshold;
+            ctx.fillStyle = row.safe
+              ? "rgba(16, 185, 129, 0.16)"
+              : scanned
+              ? "rgba(244, 63, 94, 0.34)"
+              : "rgba(30, 41, 59, 0.88)";
+            ctx.strokeStyle = row.safe ? "#10b981" : "#f43f5e";
+            ctx.lineWidth = 1.4;
+            ctx.beginPath();
+            ctx.roundRect(diffBoxX, ry, diffBoxW, rowH, 6);
+            ctx.fill();
+            ctx.stroke();
+
+            ctx.fillStyle = row.safe ? "#d1fae5" : "#fecdd3";
+            ctx.font = "600 9.8px monospace";
+            ctx.textAlign = "left";
+            ctx.fillText(row.text, diffBoxX + 10, ry + 15);
+
+            ctx.fillStyle = row.safe ? "#34d399" : "#fb7185";
+            ctx.font = "700 9.2px monospace";
+            ctx.fillText(row.tag, diffBoxX + 10, ry + 29);
+          });
+
+          // Draw laser line strictly within left panel
+          ctx.strokeStyle = "#22d3ee";
+          ctx.lineWidth = 2.4;
+          ctx.beginPath();
+          ctx.moveTo(laserX, diffStartY - 3);
+          ctx.lineTo(laserX, diffStartY + diffRows.length * (rowH + rowGap) + 2);
+          ctx.stroke();
+
+          // --- RIGHT PANEL: STRUCTURED [AI] COMMIT CARD ---
+          ctx.fillStyle = "rgba(15, 23, 42, 0.94)";
+          ctx.strokeStyle = "#22d3ee";
+          ctx.lineWidth = 1.8;
+          ctx.beginPath();
+          ctx.roundRect(panelRightX, startY, panelW, cardH, 10);
+          ctx.fill();
+          ctx.stroke();
+
+          const commitLines = [
+            { text: "GENERATED git-commit STRUCTURE", color: "#22d3ee", bold: true },
+            { text: "[AI] feat(bd-a4f.2): add token cache", color: "#f8fafc", bold: true },
+            { text: "* src/auth:", color: "#fde047", bold: true },
+            { text: "- src/auth/token_cache.py", color: "#93c5fd", bold: false },
+            { text: "- TTL cache via stdlib monotonic", color: "#cbd5e1", bold: false },
+            { text: "* tests:", color: "#fde047", bold: true },
+            { text: "- tests/test_token_cache.py", color: "#93c5fd", bold: false },
+            { text: "- verify hit, expiry & redaction", color: "#cbd5e1", bold: false },
+            { text: "PII / Secrets / Abs-Paths: 0", color: "#34d399", bold: true }
+          ];
+
+          commitLines.forEach((line, i) => {
+            ctx.fillStyle = line.color;
+            ctx.font = (line.bold ? "700 " : "500 ") + "9.8px monospace";
+            ctx.textAlign = "left";
+            ctx.fillText(line.text, panelRightX + 12, startY + 22 + i * 26);
+          });
+        }
+      }
+
+      // ====================================================================
+      // Act 6: The Complete 6-Pillar Symphony & Impact Radar
+      // ====================================================================
+      const symphonyPillars = [
+        { name: "F. OpenWiki Brain", color: "#a855f7", plane: "Control Plane" },
+        { name: "A. OpenSpec (SDD)", color: "#38bdf8", plane: "Control Plane" },
+        { name: "B. Beads (bd DAG)", color: "#f59e0b", plane: "Control Plane" },
+        { name: "C. Superpowers TDD", color: "#10b981", plane: "Execution Sandbox" },
+        { name: "D. Ponytail Horse", color: "#fb923c", plane: "Cross-Cutting Gate" },
+        { name: "E. git-commit Airlock", color: "#22d3ee", plane: "Cross-Cutting Gate" }
+      ];
+
+      function drawAct6Symphony(ctx, w, h, t, beat) {
+        ctx.clearRect(0, 0, w, h);
+        const pal = getCanvasPalette();
+        const cx = w * 0.5;
+        const cy = h * 0.5;
+
+        if (beat === 0) {
+          const rx = 215;
+          const ry = 118;
+
+          // Orbital ring
+          ctx.strokeStyle = pal.isLight ? "rgba(2, 132, 199, 0.34)" : "rgba(56, 189, 248, 0.28)";
+          ctx.lineWidth = 2;
+          ctx.beginPath();
+          ctx.ellipse(cx, cy, rx, ry, 0, 0, Math.PI * 2);
+          ctx.stroke();
+
+          // Travelling Closed-Loop Pulses
+          for (let k = 0; k < 6; k++) {
+            const a = t * 0.025 + (k * Math.PI) / 3;
+            const px = cx + Math.cos(a) * rx;
+            const py = cy + Math.sin(a) * ry;
+            ctx.fillStyle = symphonyPillars[k].color;
+            ctx.beginPath();
+            ctx.arc(px, py, 5.5, 0, Math.PI * 2);
+            ctx.fill();
+          }
+
+          symphonyPillars.forEach((p, idx) => {
+            const ang = -Math.PI / 2 + (idx * Math.PI * 2) / 6;
+            const nx = cx + Math.cos(ang) * rx;
+            const ny = cy + Math.sin(ang) * ry;
+
+            ctx.fillStyle = "rgba(15, 23, 42, 0.94)";
+            ctx.strokeStyle = p.color;
+            ctx.lineWidth = 2.2;
+            ctx.beginPath();
+            ctx.roundRect(nx - 72, ny - 24, 144, 48, 10);
+            ctx.fill();
+            ctx.stroke();
+
+            ctx.fillStyle = "#f8fafc";
+            ctx.font = "700 11.5px sans-serif";
+            ctx.textAlign = "center";
+            ctx.fillText(p.name, nx, ny - 3);
+            ctx.fillStyle = "#94a3b8";
+            ctx.font = "500 10px monospace";
+            ctx.fillText(p.plane, nx, ny + 14);
+          });
+
+          // Core center hub
+          ctx.fillStyle = pal.hubFill;
+          ctx.strokeStyle = pal.hubStroke;
+          ctx.lineWidth = 2;
+          ctx.beginPath();
+          ctx.arc(cx, cy, 46, 0, Math.PI * 2);
+          ctx.fill();
+          ctx.stroke();
+          ctx.fillStyle = pal.ink;
+          ctx.font = "700 11px monospace";
+          ctx.textAlign = "center";
+          ctx.fillText("CLOSED-LOOP", cx, cy - 4);
+          ctx.fillText("SYMPHONY", cx, cy + 12);
+        } else {
+          // Beat 1: 6-Axis Impact Radar (Vibe Coding vs. Six-Pillar Engineering)
+          const axes = [
+            "Spec Fidelity",
+            "Zero Bloat (Ponytail)",
+            "Worktree Safety",
+            "Long-Term Memory",
+            "PII/Secret Hygiene",
+            "Verified Coverage (1.4x)"
+          ];
+          const rcy = cy + 10;
+          const maxR = 104;
+          const vibeScores = [0.28, 0.22, 0.25, 0.18, 0.3, 0.35];
+          const pillarScores = [0.96, 0.95, 0.98, 0.96, 0.98, 0.97];
+
+          // 2-swatch Radar Legend
+          const legendItems = [
+            { label: "Vibe Coding", color: "#f43f5e" },
+            { label: "Six-Pillar Engineering", color: "#10b981" }
+          ];
+          legendItems.forEach((item, idx) => {
+            const ly = 22 + idx * 20;
+            ctx.fillStyle = item.color;
+            ctx.fillRect(20, ly - 9, 12, 12);
+            ctx.fillStyle = pal.inkSub;
+            ctx.font = "600 11px monospace";
+            ctx.textAlign = "left";
+            ctx.fillText(item.label, 38, ly + 1);
+          });
+
+          axes.forEach((label, i) => {
+            const ang = -Math.PI / 2 + (i * Math.PI * 2) / axes.length;
+            const cosA = Math.cos(ang);
+            const sinA = Math.sin(ang);
+            const ax = cx + cosA * maxR;
+            const ay = rcy + sinA * maxR;
+            ctx.strokeStyle = pal.radarGrid;
+            ctx.beginPath();
+            ctx.moveTo(cx, rcy);
+            ctx.lineTo(ax, ay);
+            ctx.stroke();
+
+            ctx.fillStyle = pal.inkSub;
+            ctx.font = "600 11px monospace";
+            if (Math.abs(cosA) < 0.15) {
+              ctx.textAlign = "center";
+              ctx.fillText(label, cx, rcy + sinA * (maxR + 18) + (sinA > 0 ? 6 : -2));
+            } else if (cosA > 0) {
+              ctx.textAlign = "left";
+              ctx.fillText(label, cx + cosA * (maxR + 14), rcy + sinA * (maxR + 14) + 4);
+            } else {
+              ctx.textAlign = "right";
+              ctx.fillText(label, cx + cosA * (maxR + 14), rcy + sinA * (maxR + 14) + 4);
+            }
+          });
+
+          function drawRadarPolygon(scores, strokeCol, fillCol) {
+            ctx.beginPath();
+            scores.forEach((s, i) => {
+              const ang = -Math.PI / 2 + (i * Math.PI * 2) / scores.length;
+              const r = s * maxR;
+              const px = cx + Math.cos(ang) * r;
+              const py = rcy + Math.sin(ang) * r;
+              if (i === 0) ctx.moveTo(px, py);
+              else ctx.lineTo(px, py);
+            });
+            ctx.closePath();
+            ctx.fillStyle = fillCol;
+            ctx.strokeStyle = strokeCol;
+            ctx.lineWidth = 2.4;
+            ctx.fill();
+            ctx.stroke();
+          }
+
+          drawRadarPolygon(vibeScores, "#f43f5e", "rgba(244, 63, 94, 0.22)");
+          drawRadarPolygon(pillarScores, "#10b981", "rgba(16, 185, 129, 0.28)");
+        }
+      }
+
+      function renderLoop() {
+        if (!document.hidden) {
+          animClock += 1;
+          const pal = getCanvasPalette();
+          // Ambient background grid particles
+          bgCtx.clearRect(0, 0, bgCanvas.width, bgCanvas.height);
+          bgCtx.fillStyle = pal.ambientDot;
+          for (let i = 0; i < 28; i++) {
+            const px = ((i * 197 + animClock * 0.3) % bgCanvas.width);
+            const py = ((i * 131 + Math.sin(animClock * 0.01 + i) * 25) % bgCanvas.height);
+            bgCtx.beginPath();
+            bgCtx.arc(px, py, 1.6, 0, Math.PI * 2);
+            bgCtx.fill();
+          }
+
+          const activeCanvas = document.getElementById("canvas-act-" + currentAct);
+          if (activeCanvas) {
+            const dpr = window.devicePixelRatio || 1;
+            const logicalW = 680;
+            const logicalH = 360;
+            const targetW = Math.round(logicalW * dpr);
+            const targetH = Math.round(logicalH * dpr);
+            if (activeCanvas.width !== targetW || activeCanvas.height !== targetH) {
+              activeCanvas.width = targetW;
+              activeCanvas.height = targetH;
+            }
+            const c = activeCanvas.getContext("2d");
+            c.save();
+            c.scale(dpr, dpr);
+            if (currentAct === 1) drawAct1(c, logicalW, logicalH, animClock, currentBeat);
+            else if (currentAct === 2) drawAct2(c, logicalW, logicalH, animClock, currentBeat);
+            else if (currentAct === 3) drawAct3(c, logicalW, logicalH, animClock, currentBeat);
+            else if (currentAct === 4) drawAct4Brain(c, logicalW, logicalH, animClock, currentBeat);
+            else if (currentAct === 5) drawAct5PonytailAndGit(c, logicalW, logicalH, animClock, currentBeat);
+            else if (currentAct === 6) drawAct6Symphony(c, logicalW, logicalH, animClock, currentBeat);
+            c.restore();
+          }
+        }
+        requestAnimationFrame(renderLoop);
+      }
+
+      window.addEventListener("resize", () => scrollActiveTimelineNodeIntoView(false));
+      parseHash();
+      syncUI();
+      requestAnimationFrame(() => requestAnimationFrame(() => {
+        htmlEl.classList.remove("preload");
+        scrollActiveTimelineNodeIntoView(false);
+      }));
+      requestAnimationFrame(renderLoop);
+    })();
+  </script>
+</body>
+</html>
