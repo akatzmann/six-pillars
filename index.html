@@ -731,6 +731,165 @@
       border-color: var(--active-accent);
     }
 
+    /* Closing Finale QR Overlay (Final Click-Step Curtain Call) */
+    #finale-overlay {
+      position: fixed;
+      inset: 0;
+      background: var(--bg-overview);
+      backdrop-filter: blur(22px);
+      z-index: 130;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 2rem;
+      opacity: 0;
+      visibility: hidden;
+      pointer-events: none;
+      transition: opacity 0.34s cubic-bezier(0.22, 1, 0.36, 1), visibility 0.34s ease;
+    }
+
+    #finale-overlay.open {
+      opacity: 1;
+      visibility: visible;
+      pointer-events: auto;
+    }
+
+    .finale-card {
+      max-width: 960px;
+      width: 100%;
+      background: var(--bg-card);
+      border: 1.5px solid var(--border-strong);
+      border-radius: 22px;
+      padding: 2.25rem 2.5rem;
+      display: grid;
+      grid-template-columns: auto 1fr;
+      align-items: center;
+      gap: 2.4rem;
+      box-shadow: 0 28px 72px rgba(0, 0, 0, 0.45), 0 0 42px rgba(16, 185, 129, 0.14);
+      transform: translateY(24px) scale(0.94);
+      transition: transform 0.38s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+
+    #finale-overlay.open .finale-card {
+      transform: translateY(0) scale(1);
+    }
+
+    .finale-qr-frame {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.7rem;
+      padding: 1rem;
+      border-radius: 18px;
+      background: #ffffff;
+      box-shadow: 0 12px 32px rgba(0, 0, 0, 0.3);
+    }
+
+    #finale-qr-svg {
+      width: 248px;
+      height: 248px;
+      display: block;
+    }
+
+    .finale-qr-caption {
+      font-family: var(--font-mono);
+      font-size: 0.72rem;
+      font-weight: 700;
+      color: #0f172a;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+    }
+
+    .finale-copy {
+      display: flex;
+      flex-direction: column;
+      gap: 0.95rem;
+    }
+
+    .finale-title {
+      font-size: clamp(1.7rem, 2.8vw, 2.35rem);
+      font-weight: 800;
+      line-height: 1.12;
+      color: var(--text-primary);
+    }
+
+    .finale-desc {
+      font-size: 0.98rem;
+      line-height: 1.5;
+      color: var(--text-secondary);
+    }
+
+    .finale-links {
+      display: flex;
+      flex-direction: column;
+      gap: 0.65rem;
+      margin-top: 0.2rem;
+    }
+
+    .finale-link-primary,
+    .finale-link-secondary {
+      display: inline-flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.75rem;
+      padding: 0.78rem 1.05rem;
+      border-radius: var(--radius-md);
+      font-family: var(--font-mono);
+      text-decoration: none;
+      transition: transform 0.18s ease, border-color 0.18s ease;
+    }
+
+    .finale-link-primary {
+      background: var(--bg-elevated);
+      border: 1.5px solid var(--active-accent);
+      color: var(--text-primary);
+      font-size: 1.02rem;
+      font-weight: 700;
+    }
+
+    .finale-link-secondary {
+      background: var(--bg-elevated);
+      border: 1px solid var(--border-subtle);
+      color: var(--text-secondary);
+      font-size: 0.85rem;
+      font-weight: 600;
+    }
+
+    .finale-link-primary:hover,
+    .finale-link-secondary:hover {
+      transform: translateY(-2px);
+      border-color: var(--active-accent);
+    }
+
+    .finale-hint {
+      margin-top: 0.3rem;
+      font-family: var(--font-mono);
+      font-size: 0.74rem;
+      color: var(--text-muted);
+    }
+
+    @media (max-width: 768px) {
+      #finale-overlay {
+        padding: 1rem;
+      }
+      .finale-card {
+        grid-template-columns: 1fr;
+        justify-items: center;
+        text-align: center;
+        padding: 1.35rem;
+        gap: 1.2rem;
+        max-height: 92dvh;
+        overflow-y: auto;
+      }
+      #finale-qr-svg {
+        width: 184px;
+        height: 184px;
+      }
+      .finale-link-primary {
+        font-size: 0.85rem;
+      }
+    }
+
     /* Click Ripple Pulse */
     .click-ripple {
       position: fixed;
@@ -1598,6 +1757,33 @@
     </div>
   </aside>
 
+  <!-- CLOSING FINALE QR OVERLAY -->
+  <aside id="finale-overlay" aria-label="Six Pillars GitHub Template Finale" aria-hidden="true">
+    <div class="finale-card">
+      <div class="finale-qr-frame" data-no-advance="true">
+        <svg id="finale-qr-svg" viewBox="0 0 37 37" shape-rendering="crispEdges" role="img" aria-label="QR code for https://github.com/akatzmann/six-pillars">
+          <rect width="37" height="37" fill="#ffffff" />
+          <path fill="#0f172a" d="M4,4h7v1h-7zM12,4h3v1h-3zM16,4h1v1h-1zM18,4h1v1h-1zM21,4h1v1h-1zM26,4h7v1h-7zM4,5h1v1h-1zM10,5h1v1h-1zM12,5h1v1h-1zM14,5h1v1h-1zM16,5h2v1h-2zM23,5h1v1h-1zM26,5h1v1h-1zM32,5h1v1h-1zM4,6h1v1h-1zM6,6h3v1h-3zM10,6h1v1h-1zM12,6h2v1h-2zM15,6h3v1h-3zM19,6h1v1h-1zM22,6h2v1h-2zM26,6h1v1h-1zM28,6h3v1h-3zM32,6h1v1h-1zM4,7h1v1h-1zM6,7h3v1h-3zM10,7h1v1h-1zM13,7h1v1h-1zM17,7h1v1h-1zM19,7h3v1h-3zM24,7h1v1h-1zM26,7h1v1h-1zM28,7h3v1h-3zM32,7h1v1h-1zM4,8h1v1h-1zM6,8h3v1h-3zM10,8h1v1h-1zM12,8h5v1h-5zM18,8h1v1h-1zM20,8h1v1h-1zM23,8h1v1h-1zM26,8h1v1h-1zM28,8h3v1h-3zM32,8h1v1h-1zM4,9h1v1h-1zM10,9h1v1h-1zM13,9h4v1h-4zM22,9h1v1h-1zM24,9h1v1h-1zM26,9h1v1h-1zM32,9h1v1h-1zM4,10h7v1h-7zM12,10h1v1h-1zM14,10h1v1h-1zM16,10h1v1h-1zM18,10h1v1h-1zM20,10h1v1h-1zM22,10h1v1h-1zM24,10h1v1h-1zM26,10h7v1h-7zM15,11h3v1h-3zM22,11h1v1h-1zM24,11h1v1h-1zM4,12h1v1h-1zM7,12h7v1h-7zM16,12h1v1h-1zM18,12h1v1h-1zM20,12h2v1h-2zM25,12h1v1h-1zM28,12h1v1h-1zM30,12h3v1h-3zM6,13h1v1h-1zM11,13h6v1h-6zM19,13h1v1h-1zM21,13h3v1h-3zM25,13h1v1h-1zM27,13h2v1h-2zM30,13h2v1h-2zM5,14h7v1h-7zM13,14h2v1h-2zM17,14h3v1h-3zM21,14h1v1h-1zM27,14h2v1h-2zM30,14h1v1h-1zM5,15h1v1h-1zM7,15h2v1h-2zM11,15h2v1h-2zM14,15h3v1h-3zM20,15h2v1h-2zM25,15h3v1h-3zM29,15h1v1h-1zM32,15h1v1h-1zM10,16h2v1h-2zM19,16h1v1h-1zM23,16h2v1h-2zM26,16h2v1h-2zM32,16h1v1h-1zM4,17h1v1h-1zM7,17h1v1h-1zM13,17h3v1h-3zM17,17h1v1h-1zM19,17h2v1h-2zM22,17h1v1h-1zM26,17h7v1h-7zM6,18h1v1h-1zM8,18h4v1h-4zM13,18h1v1h-1zM15,18h2v1h-2zM19,18h1v1h-1zM22,18h5v1h-5zM28,18h1v1h-1zM30,18h1v1h-1zM32,18h1v1h-1zM4,19h1v1h-1zM8,19h2v1h-2zM11,19h3v1h-3zM16,19h1v1h-1zM23,19h1v1h-1zM27,19h2v1h-2zM30,19h1v1h-1zM32,19h1v1h-1zM6,20h5v1h-5zM16,20h1v1h-1zM18,20h1v1h-1zM23,20h3v1h-3zM29,20h1v1h-1zM4,21h3v1h-3zM8,21h1v1h-1zM12,21h1v1h-1zM14,21h2v1h-2zM17,21h1v1h-1zM19,21h2v1h-2zM22,21h2v1h-2zM28,21h1v1h-1zM30,21h2v1h-2zM4,22h4v1h-4zM10,22h1v1h-1zM14,22h1v1h-1zM16,22h1v1h-1zM19,22h2v1h-2zM23,22h1v1h-1zM28,22h2v1h-2zM32,22h1v1h-1zM4,23h6v1h-6zM11,23h1v1h-1zM13,23h1v1h-1zM16,23h1v1h-1zM18,23h1v1h-1zM22,23h2v1h-2zM26,23h1v1h-1zM29,23h2v1h-2zM4,24h2v1h-2zM8,24h3v1h-3zM12,24h4v1h-4zM17,24h2v1h-2zM21,24h1v1h-1zM24,24h8v1h-8zM12,25h1v1h-1zM16,25h1v1h-1zM18,25h2v1h-2zM21,25h2v1h-2zM24,25h1v1h-1zM28,25h2v1h-2zM4,26h7v1h-7zM12,26h2v1h-2zM18,26h3v1h-3zM23,26h2v1h-2zM26,26h1v1h-1zM28,26h2v1h-2zM4,27h1v1h-1zM10,27h1v1h-1zM12,27h4v1h-4zM18,27h1v1h-1zM20,27h5v1h-5zM28,27h1v1h-1zM32,27h1v1h-1zM4,28h1v1h-1zM6,28h3v1h-3zM10,28h1v1h-1zM12,28h1v1h-1zM15,28h1v1h-1zM17,28h2v1h-2zM20,28h1v1h-1zM22,28h8v1h-8zM31,28h1v1h-1zM4,29h1v1h-1zM6,29h3v1h-3zM10,29h1v1h-1zM12,29h2v1h-2zM15,29h1v1h-1zM17,29h1v1h-1zM19,29h4v1h-4zM25,29h1v1h-1zM32,29h1v1h-1zM4,30h1v1h-1zM6,30h3v1h-3zM10,30h1v1h-1zM13,30h2v1h-2zM16,30h4v1h-4zM21,30h1v1h-1zM24,30h2v1h-2zM27,30h2v1h-2zM30,30h3v1h-3zM4,31h1v1h-1zM10,31h1v1h-1zM16,31h2v1h-2zM19,31h2v1h-2zM26,31h2v1h-2zM29,31h2v1h-2zM32,31h1v1h-1zM4,32h7v1h-7zM12,32h2v1h-2zM15,32h3v1h-3zM19,32h2v1h-2zM23,32h2v1h-2zM26,32h1v1h-1zM28,32h1v1h-1z" />
+        </svg>
+        <div class="finale-qr-caption">Scan for GitHub Template</div>
+      </div>
+      <div class="finale-copy">
+        <div class="act-eyebrow">Start Today &bull; Apache-2.0 GitHub Template</div>
+        <h2 class="finale-title">Grab the Six-Pillar Template</h2>
+        <p class="finale-desc">Clone <code>AGENTS.md</code> and all 14 portable skills (OpenSpec, Beads, Superpowers, Ponytail, OpenWiki, and <code>git-commit</code>) into any new repository.</p>
+        <div class="finale-links">
+          <a class="finale-link-primary" href="https://github.com/akatzmann/six-pillars" target="_blank" rel="noopener noreferrer" data-no-advance="true">
+            <span>github.com/akatzmann/six-pillars</span><span>&nearr;</span>
+          </a>
+          <a class="finale-link-secondary" href="https://www.linkedin.com/in/alexander-katzmann/" target="_blank" rel="noopener noreferrer" data-no-advance="true">
+            <span>LinkedIn: linkedin.com/in/alexander-katzmann</span><span>&nearr;</span>
+          </a>
+        </div>
+        <div class="finale-hint">Click or &rarr; to restart from Act 1 &bull; Right-Click / &larr; / Esc to go back &bull; [Q] toggle &bull; &copy; 2026 Alexander Katzmann</div>
+      </div>
+    </div>
+  </aside>
+
   <script>
     (function () {
       const TOTAL_ACTS = 6;
@@ -1613,6 +1799,7 @@
 
       let currentAct = 1;
       let currentBeat = 0;
+      let finaleOpen = false;
       let animClock = 0;
       let mouseNormX = 0;
       let mouseNormY = 0;
@@ -1624,7 +1811,19 @@
       const hudBeatBadge = document.getElementById("hud-beat-badge");
       const hudName = document.getElementById("hud-act-name");
       const overviewMap = document.getElementById("overview-map");
+      const finaleOverlay = document.getElementById("finale-overlay");
       const themeToggle = document.getElementById("theme-toggle");
+
+      function setFinaleOpen(open) {
+        finaleOpen = Boolean(open);
+        if (finaleOverlay) {
+          finaleOverlay.classList.toggle("open", finaleOpen);
+          finaleOverlay.setAttribute("aria-hidden", String(!finaleOpen));
+        }
+        if (finaleOpen) {
+          overviewMap.classList.remove("open");
+        }
+      }
 
       function spawnRipple(x, y) {
         const r = document.createElement("div");
@@ -1747,16 +1946,30 @@
       }
 
       function stepForward() {
+        if (finaleOpen) {
+          setFinaleOpen(false);
+          currentAct = 1;
+          currentBeat = 0;
+          syncUI();
+          return;
+        }
         if (currentBeat < BEATS_PER_ACT - 1) {
           currentBeat += 1;
-        } else {
+          syncUI();
+        } else if (currentAct < TOTAL_ACTS) {
           currentBeat = 0;
-          currentAct = currentAct < TOTAL_ACTS ? currentAct + 1 : 1;
+          currentAct += 1;
+          syncUI();
+        } else {
+          setFinaleOpen(true);
         }
-        syncUI();
       }
 
       function stepBackward() {
+        if (finaleOpen) {
+          setFinaleOpen(false);
+          return;
+        }
         if (currentBeat > 0) {
           currentBeat -= 1;
         } else {
@@ -1828,11 +2041,13 @@
         animClock = 0;
       });
       document.getElementById("btn-overview").addEventListener("click", () => {
+        setFinaleOpen(false);
         overviewMap.classList.toggle("open");
       });
       overviewMap.addEventListener("click", (e) => {
         const card = e.target.closest("[data-jump-act]");
         if (card) {
+          setFinaleOpen(false);
           currentAct = Number(card.getAttribute("data-jump-act"));
           currentBeat = 0;
           overviewMap.classList.remove("open");
@@ -1842,9 +2057,26 @@
         }
       });
 
+      if (finaleOverlay) {
+        finaleOverlay.addEventListener("click", (e) => {
+          if (e.target.closest("[data-no-advance], button, a, input")) return;
+          spawnRipple(e.clientX, e.clientY);
+          if (e.shiftKey) {
+            stepBackward();
+          } else {
+            stepForward();
+          }
+        });
+        finaleOverlay.addEventListener("contextmenu", (e) => {
+          e.preventDefault();
+          stepBackward();
+        });
+      }
+
       document.querySelectorAll("[data-jump-act]").forEach((btn) => {
         if (btn.closest("#overview-map")) return;
         btn.addEventListener("click", () => {
+          setFinaleOpen(false);
           currentAct = Number(btn.getAttribute("data-jump-act"));
           currentBeat = 0;
           syncUI();
@@ -1853,6 +2085,7 @@
 
       document.querySelectorAll("[data-jump-beat]").forEach((btn) => {
         btn.addEventListener("click", () => {
+          setFinaleOpen(false);
           currentBeat = Number(btn.getAttribute("data-jump-beat"));
           syncUI();
         });
@@ -1901,11 +2134,17 @@
           e.preventDefault();
           stepBackward();
         } else if (e.key.toLowerCase() === "m") {
+          setFinaleOpen(false);
           overviewMap.classList.toggle("open");
+        } else if (e.key.toLowerCase() === "q") {
+          e.preventDefault();
+          setFinaleOpen(!finaleOpen);
         } else if (e.key === "Escape") {
+          setFinaleOpen(false);
           overviewMap.classList.remove("open");
         } else if (e.key >= "1" && e.key <= "6") {
           e.preventDefault();
+          setFinaleOpen(false);
           currentAct = Number(e.key);
           currentBeat = 0;
           overviewMap.classList.remove("open");
@@ -1918,12 +2157,14 @@
           themeToggle.click();
         } else if (e.key === "Home") {
           e.preventDefault();
+          setFinaleOpen(false);
           currentAct = 1;
           currentBeat = 0;
           overviewMap.classList.remove("open");
           syncUI();
         } else if (e.key === "End") {
           e.preventDefault();
+          setFinaleOpen(false);
           currentAct = TOTAL_ACTS;
           currentBeat = BEATS_PER_ACT - 1;
           overviewMap.classList.remove("open");
